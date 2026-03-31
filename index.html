@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026 Area 51 Cup | Queensland Junior Tennis Championships</title>
+  <!-- Noto Sans SC: web-safe Simplified Chinese font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:        #0a0e1a;
+      --bg2:       #0d1424;
+      --bg3:       #111827;
+      --card:      #131c2e;
+      --blue:      #00aaff;
+      --green:     #39ff14;
+      --orange:    #ff6a00;
+      --yellow:    #ffe600;
+      --text:      #e8eaf6;
+      --muted:     #8090b0;
+      --border:    rgba(0,170,255,0.18);
+      --glow-b:    0 0 16px rgba(0,170,255,0.55);
+      --glow-g:    0 0 16px rgba(57,255,20,0.55);
+      --glow-o:    0 0 16px rgba(255,106,0,0.55);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                   "Noto Sans SC", "PingFang SC", "Hiragino Sans GB",
+                   "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ── Utility ── */
+    .neon-blue  { color: var(--blue);   text-shadow: var(--glow-b); }
+    .neon-green { color: var(--green);  text-shadow: var(--glow-g); }
+    .neon-orange{ color: var(--orange); text-shadow: var(--glow-o); }
+    .section { padding: 72px 20px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 48px;
+      text-transform: uppercase;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .badge-blue   { background: rgba(0,170,255,.15); color: var(--blue);   border: 1px solid var(--blue); }
+    .badge-green  { background: rgba(57,255,20,.12); color: var(--green);  border: 1px solid var(--green); }
+    .badge-orange { background: rgba(255,106,0,.15); color: var(--orange); border: 1px solid var(--orange); }
+    .badge-yellow { background: rgba(255,230,0,.12); color: var(--yellow); border: 1px solid var(--yellow); }
+
+    /* ── Language Hidden ── */
+    [data-lang="en"], [data-lang="zh"] { display: none; }
+    body.lang-zh [data-lang="zh"] { display: revert; }
+    body.lang-en [data-lang="en"] { display: revert; }
+    /* inline spans */
+    span[data-lang] { display: none; }
+    body.lang-zh span[data-lang="zh"] { display: inline; }
+    body.lang-en span[data-lang="en"] { display: inline; }
+
+    /* ── Navbar ── */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 28px;
+      background: rgba(10,14,26,.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow .3s;
+    }
+    #navbar.scrolled { box-shadow: 0 2px 30px rgba(0,170,255,.2); }
+    .nav-logo {
+      font-size: 1.15rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: var(--blue);
+      text-shadow: var(--glow-b);
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex; gap: 24px; list-style: none;
+      font-size: .85rem; font-weight: 600; letter-spacing: 1px;
+    }
+    .nav-links a {
+      color: var(--muted);
+      transition: color .2s;
+      text-transform: uppercase;
+    }
+    .nav-links a:hover { color: var(--blue); text-shadow: var(--glow-b); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    #lang-toggle {
+      padding: 7px 18px;
+      border: 1.5px solid var(--blue);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--blue);
+      font-size: .82rem; font-weight: 700; letter-spacing: 1.5px;
+      cursor: pointer;
+      transition: background .2s, color .2s, box-shadow .2s;
+    }
+    #lang-toggle:hover {
+      background: var(--blue); color: #000;
+      box-shadow: var(--glow-b);
+    }
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .nav-logo { font-size: .95rem; }
+    }
+
+    /* ── Hero ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: 100px 20px 60px;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: url('hero.jpg') center/cover no-repeat;
+      filter: brightness(.3) saturate(1.4);
+    }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(180deg, rgba(10,14,26,.5) 0%, rgba(10,14,26,.85) 100%);
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero-season {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-bottom: 20px;
+    }
+    .hero-utr {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-bottom: 16px;
+      padding: 6px 16px;
+      border: 1.5px solid var(--green);
+      border-radius: 999px;
+      font-size: .8rem; font-weight: 700; letter-spacing: 2px;
+      color: var(--green);
+      text-shadow: var(--glow-g);
+      box-shadow: 0 0 14px rgba(57,255,20,.2);
+    }
+    .hero-utr svg { width: 16px; height: 16px; fill: var(--green); }
+    .hero-title-en {
+      font-size: clamp(2.2rem, 8vw, 5.5rem);
+      font-weight: 900;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--blue);
+      text-shadow: 0 0 40px rgba(0,170,255,.8), 0 0 80px rgba(0,170,255,.4);
+      line-height: 1.1;
+    }
+    .hero-title-sub {
+      font-size: clamp(1rem, 3.5vw, 2rem);
+      font-weight: 700;
+      color: var(--orange);
+      text-shadow: var(--glow-o);
+      margin-top: 8px;
+      letter-spacing: 2px;
+    }
+    .hero-title-complement {
+      font-size: clamp(1.4rem, 5vw, 3rem);
+      font-weight: 900;
+      color: var(--yellow);
+      text-shadow: 0 0 30px rgba(255,230,0,.7);
+      margin-top: 10px;
+    }
+    .hero-location {
+      margin-top: 22px;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 24px;
+      background: rgba(0,170,255,.08);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: .95rem; font-weight: 600;
+      color: var(--text);
+    }
+    .hero-location svg { width: 18px; height: 18px; fill: var(--orange); flex-shrink: 0; }
+    .hero-cta {
+      margin-top: 32px;
+      display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 30px;
+      border-radius: 8px;
+      font-size: .95rem; font-weight: 700; letter-spacing: 1px;
+      cursor: pointer; border: none;
+      transition: transform .15s, box-shadow .2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue), #0066cc);
+      color: #fff;
+      box-shadow: 0 4px 24px rgba(0,170,255,.45);
+    }
+    .btn-primary:hover { box-shadow: 0 6px 32px rgba(0,170,255,.7); }
+    .btn-orange {
+      background: linear-gradient(135deg, var(--orange), #cc4400);
+      color: #fff;
+      box-shadow: 0 4px 24px rgba(255,106,0,.4);
+    }
+    .btn-orange:hover { box-shadow: 0 6px 32px rgba(255,106,0,.7); }
+    .btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+    /* ── Countdown ── */
+    #countdown { background: var(--bg2); }
+    .countdown-wrap {
+      display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;
+    }
+    .cd-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 30px;
+      text-align: center;
+      min-width: 110px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.4);
+      position: relative;
+      overflow: hidden;
+    }
+    .cd-box::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--green));
+    }
+    .cd-num {
+      font-size: clamp(2.5rem, 7vw, 4rem);
+      font-weight: 900;
+      color: var(--blue);
+      text-shadow: var(--glow-b);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+    .cd-label {
+      font-size: .72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    .cd-event-label {
+      text-align: center;
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: .9rem;
+      letter-spacing: 1px;
+    }
+    .cd-event-label strong { color: var(--green); text-shadow: var(--glow-g); }
+    #countdown-finished {
+      display: none;
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--green);
+      text-shadow: var(--glow-g);
+    }
+
+    /* ── Schedule ── */
+    #schedule { background: var(--bg3); }
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .sched-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 20px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .sched-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,170,255,.2); }
+    .sched-card::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    }
+    .sched-card.blue::before  { background: var(--blue); }
+    .sched-card.green::before { background: var(--green); }
+    .sched-card.orange::before { background: var(--orange); }
+    .sched-date {
+      font-size: .8rem; letter-spacing: 2px; font-weight: 700;
+      text-transform: uppercase; margin-bottom: 8px;
+    }
+    .sched-title { font-size: 1.1rem; font-weight: 800; margin-bottom: 6px; }
+    .sched-time {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .85rem; color: var(--muted);
+    }
+    .sched-time svg { width: 14px; height: 14px; fill: var(--muted); }
+
+    /* ── Groups ── */
+    #groups { background: var(--bg2); }
+    .groups-tabs {
+      display: flex; gap: 0; justify-content: center; margin-bottom: 36px;
+      border-radius: 10px; overflow: hidden;
+      border: 1px solid var(--border);
+      max-width: 420px; margin-left: auto; margin-right: auto;
+    }
+    .gtab {
+      flex: 1; padding: 12px; text-align: center;
+      background: transparent; border: none; cursor: pointer;
+      font-size: .9rem; font-weight: 700; letter-spacing: 1px;
+      color: var(--muted); transition: background .2s, color .2s;
+    }
+    .gtab.active { background: var(--blue); color: #000; }
+    .gtab:first-child { border-right: 1px solid var(--border); }
+    .group-panel { display: none; }
+    .group-panel.active { display: block; }
+    .group-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .group-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .group-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,170,255,.15); }
+    .group-header {
+      padding: 14px 18px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .group-header.yellow { background: rgba(255,230,0,.1); border-bottom: 1px solid rgba(255,230,0,.2); }
+    .group-header.green  { background: rgba(57,255,20,.08); border-bottom: 1px solid rgba(57,255,20,.18); }
+    .group-name {
+      font-size: 1.1rem; font-weight: 900; letter-spacing: 2px;
+    }
+    .group-card table {
+      width: 100%; border-collapse: collapse;
+    }
+    .group-card td {
+      padding: 10px 18px;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      font-size: .9rem;
+    }
+    .group-card tr:last-child td { border-bottom: none; }
+    .group-card tr:hover td { background: rgba(0,170,255,.06); }
+    .player-num {
+      color: var(--muted); font-size: .8rem; font-weight: 700;
+      width: 28px;
+    }
+    .player-name { font-weight: 600; }
+
+    /* ── Live Scores ── */
+    #scores { background: var(--bg3); }
+    .scores-live-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 18px;
+      border-radius: 999px;
+      background: rgba(255,0,0,.1);
+      border: 1.5px solid #ff3344;
+      color: #ff3344;
+      font-size: .8rem; font-weight: 800; letter-spacing: 2px;
+      margin-bottom: 28px;
+    }
+    .scores-live-badge::before {
+      content: '';
+      width: 10px; height: 10px;
+      background: #ff3344;
+      border-radius: 50%;
+      animation: blink 1.2s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .scores-placeholder {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 18px;
+      margin-top: 12px;
+    }
+    .score-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .score-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--orange), #ff3344);
+    }
+    .score-event {
+      font-size: .72rem; letter-spacing: 2px; font-weight: 700;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 14px;
+    }
+    .score-match {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      margin-bottom: 8px;
+    }
+    .score-player { font-weight: 700; font-size: .95rem; flex: 1; }
+    .score-val {
+      font-size: 1.2rem; font-weight: 900; color: var(--blue);
+      min-width: 36px; text-align: center;
+    }
+    .score-status {
+      font-size: .72rem; letter-spacing: 1.5px; font-weight: 700;
+      text-transform: uppercase; margin-top: 12px;
+      padding: 3px 10px; border-radius: 4px;
+      display: inline-block;
+    }
+    .score-status.pending {
+      background: rgba(255,230,0,.12); color: var(--yellow);
+      border: 1px solid rgba(255,230,0,.3);
+    }
+    .score-status.live {
+      background: rgba(255,0,0,.12); color: #ff3344;
+      border: 1px solid rgba(255,0,0,.3);
+    }
+    .score-status.final {
+      background: rgba(57,255,20,.1); color: var(--green);
+      border: 1px solid rgba(57,255,20,.3);
+    }
+    .scores-note {
+      text-align: center; color: var(--muted); font-size: .9rem;
+      margin-top: 28px; font-style: italic;
+    }
+
+    /* ── Sponsors ── */
+    #sponsors { background: var(--bg2); overflow: hidden; }
+    .marquee-track {
+      overflow: hidden;
+      -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+    .marquee-inner {
+      display: flex; gap: 48px; align-items: center;
+      animation: marquee 22s linear infinite;
+      width: max-content;
+    }
+    .marquee-inner:hover { animation-play-state: paused; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .sponsor-chip {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 16px 36px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 1.1rem; font-weight: 900; letter-spacing: 2px;
+      color: var(--text);
+      white-space: nowrap;
+      transition: border-color .2s, box-shadow .2s;
+      min-width: 140px;
+    }
+    .sponsor-chip:hover {
+      border-color: var(--blue);
+      box-shadow: var(--glow-b);
+    }
+    .sponsor-chip.red    { color: #e53935; }
+    .sponsor-chip.orange { color: var(--orange); }
+    .sponsor-chip.blue   { color: var(--blue); }
+    .sponsor-chip.green  { color: var(--green); }
+    .sponsor-title-note {
+      text-align: center; font-size: .8rem; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--muted); margin-top: 30px;
+    }
+    .sponsor-title-note strong { color: var(--orange); }
+
+    /* ── Map ── */
+    #map-section { background: var(--bg3); text-align: center; }
+    .map-card {
+      max-width: 580px; margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 32px;
+      box-shadow: 0 8px 40px rgba(0,170,255,.1);
+    }
+    .map-icon { font-size: 3rem; margin-bottom: 16px; }
+    .map-title { font-size: 1.4rem; font-weight: 900; color: var(--blue); margin-bottom: 8px; }
+    .map-addr { color: var(--muted); font-size: .95rem; margin-bottom: 24px; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 36px 20px;
+      text-align: center;
+    }
+    .footer-title {
+      font-size: 1rem; font-weight: 900; letter-spacing: 2px;
+      color: var(--blue); text-shadow: var(--glow-b);
+      margin-bottom: 8px;
+    }
+    .footer-sub { color: var(--muted); font-size: .82rem; margin-bottom: 16px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-bottom: 20px; }
+    .footer-links a {
+      color: var(--muted); font-size: .82rem; font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase;
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--blue); }
+    .footer-copy { color: var(--muted); font-size: .78rem; opacity: .65; }
+
+    /* ── Divider lines ── */
+    .neon-divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--blue), var(--green), var(--orange), transparent);
+      border: none;
+      margin: 0;
+    }
+  </style>
+</head>
+<body class="lang-zh">
+
+<!-- ════════════════════════════════════ NAVBAR ═══ -->
+<nav id="navbar">
+  <div class="nav-logo">AREA 51 CUP <span style="color:var(--orange)">2026</span></div>
+  <ul class="nav-links">
+    <li><a href="#countdown"><span data-lang="zh">倒计时</span><span data-lang="en">Countdown</span></a></li>
+    <li><a href="#schedule"><span data-lang="zh">赛程</span><span data-lang="en">Schedule</span></a></li>
+    <li><a href="#groups"><span data-lang="zh">分组</span><span data-lang="en">Groups</span></a></li>
+    <li><a href="#scores"><span data-lang="zh">实时比分</span><span data-lang="en">Live Scores</span></a></li>
+    <li><a href="#sponsors"><span data-lang="zh">赞助商</span><span data-lang="en">Sponsors</span></a></li>
+    <li><a href="#map-section"><span data-lang="zh">地点</span><span data-lang="en">Venue</span></a></li>
+  </ul>
+  <div class="nav-right">
+    <button id="lang-toggle" onclick="toggleLang()">EN</button>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════ HERO ═══ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+
+    <div class="hero-utr">
+      <svg viewBox="0 0 24 24"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z"/></svg>
+      UTR VERIFIED EVENT
+    </div>
+
+    <div class="hero-season">
+      <span class="badge badge-blue">2026 &nbsp;·&nbsp; <span data-lang="zh">第一季</span><span data-lang="en">Season One</span></span>
+    </div>
+
+    <div class="hero-title-en neon-blue">AREA 51 CUP</div>
+
+    <div class="hero-title-sub">
+      <span data-lang="zh">昆士兰青少年网球锦标赛</span>
+      <span data-lang="en">Queensland Junior Tennis Championships</span>
+    </div>
+
+    <div class="hero-title-complement" data-lang="zh">Queensland Junior Tennis Championships</div>
+    <div class="hero-title-complement" data-lang="en" style="color:var(--blue);text-shadow:var(--glow-b);">昆士兰青少年网球锦标赛</div>
+
+    <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
+      <span class="badge badge-yellow">精英组 Elite Summit · 黄球 10–16岁</span>
+      <span class="badge badge-green">绿翼组 Green Wings · 绿球 8–12岁</span>
+      <span class="badge badge-orange">橙星组 Orange Stars · 橙球 7–10岁</span>
+    </div>
+
+    <div class="hero-location">
+      <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      The Sheldon Tennis Center, Queensland
+    </div>
+
+    <div class="hero-cta">
+      <a href="#countdown" class="btn btn-primary">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm.5 5v6l4.28 2.54-.72 1.21L11 14V7h1.5z"/></svg>
+        <span data-lang="zh">查看倒计时</span><span data-lang="en">View Countdown</span>
+      </a>
+      <a href="https://maps.google.com/?q=The+Sheldon+Tennis+Center+Queensland" target="_blank" class="btn btn-orange">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <span data-lang="zh">查看地点</span><span data-lang="en">Get Directions</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="neon-divider" />
+
+<!-- ════════════════════════════════════ COUNTDOWN ═══ -->
+<section id="countdown" class="section">
+  <div class="container">
+    <h2 class="section-title neon-blue">
+      <span data-lang="zh">⏱ 比赛倒计时</span>
+      <span data-lang="en">⏱ Tournament Countdown</span>
+    </h2>
+    <div class="countdown-wrap" id="cd-wrap">
+      <div class="cd-box"><div class="cd-num" id="cd-days">--</div><div class="cd-label"><span data-lang="zh">天</span><span data-lang="en">Days</span></div></div>
+      <div class="cd-box"><div class="cd-num" id="cd-hours">--</div><div class="cd-label"><span data-lang="zh">小时</span><span data-lang="en">Hours</span></div></div>
+      <div class="cd-box"><div class="cd-num" id="cd-mins">--</div><div class="cd-label"><span data-lang="zh">分钟</span><span data-lang="en">Minutes</span></div></div>
+      <div class="cd-box"><div class="cd-num" id="cd-secs">--</div><div class="cd-label"><span data-lang="zh">秒</span><span data-lang="en">Seconds</span></div></div>
+    </div>
+    <p class="cd-event-label">
+      <span data-lang="zh">首场比赛：</span><span data-lang="en">First Match: </span>
+      <strong>2026年3月3日 08:30 · Yellow Ball Singles (精英组单打)</strong>
+    </p>
+    <div id="countdown-finished">
+      🎾 <span data-lang="zh">比赛已开始！加油！</span><span data-lang="en">Tournament has started! Game on!</span>
+    </div>
+  </div>
+</section>
+
+<hr class="neon-divider" />
+
+<!-- ════════════════════════════════════ SCHEDULE ═══ -->
+<section id="schedule" class="section">
+  <div class="container">
+    <h2 class="section-title neon-green">
+      <span data-lang="zh">📅 赛程安排</span>
+      <span data-lang="en">📅 Tournament Schedule</span>
+    </h2>
+    <div class="schedule-grid">
+
+      <div class="sched-card blue">
+        <div class="sched-date neon-blue">
+          <span data-lang="zh">3月3日（周二）</span>
+          <span data-lang="en">Tuesday · Mar 3</span>
+        </div>
+        <div class="sched-title">
+          <span data-lang="zh">🎾 黄球单打大赛</span>
+          <span data-lang="en">🎾 Yellow Ball Singles</span>
+        </div>
+        <div class="sched-time">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm.5 5v6l4.28 2.54-.72 1.21L11 14V7h1.5z"/></svg>
+          08:30 AM
+        </div>
+        <div style="margin-top:10px;"><span class="badge badge-yellow">精英组 Elite Summit</span></div>
+      </div>
+
+      <div class="sched-card green">
+        <div class="sched-date neon-green">
+          <span data-lang="zh">3月4日（周三）</span>
+          <span data-lang="en">Wednesday · Mar 4</span>
+        </div>
+        <div class="sched-title">
+          <span data-lang="zh">🟢 绿翼组</span>
+          <span data-lang="en">🟢 Green Wings Group</span>
+        </div>
+        <div class="sched-time">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm.5 5v6l4.28 2.54-.72 1.21L11 14V7h1.5z"/></svg>
+          08:30 AM
+        </div>
+        <div style="margin-top:10px;"><span class="badge badge-green">绿翼组 Green Wings</span></div>
+      </div>
+
+      <div class="sched-card blue">
+        <div class="sched-date neon-blue">
+          <span data-lang="zh">3月5日（周四）</span>
+          <span data-lang="en">Thursday · Mar 5</span>
+        </div>
+        <div class="sched-title">
+          <span data-lang="zh">🎾 黄球双打大赛</span>
+          <span data-lang="en">🎾 Yellow Ball Doubles</span>
+        </div>
+        <div class="sched-time">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm.5 5v6l4.28 2.54-.72 1.21L11 14V7h1.5z"/></svg>
+          08:30 AM
+        </div>
+        <div style="margin-top:10px;"><span class="badge badge-yellow">精英组 Elite Summit</span></div>
+      </div>
+
+      <div class="sched-card orange">
+        <div class="sched-date neon-orange">
+          <span data-lang="zh">3月5日（周四）</span>
+          <span data-lang="en">Thursday · Mar 5</span>
+        </div>
+        <div class="sched-title">
+          <span data-lang="zh">🟠 橙星组</span>
+          <span data-lang="en">🟠 Orange Stars Group</span>
+        </div>
+        <div class="sched-time">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm.5 5v6l4.28 2.54-.72 1.21L11 14V7h1.5z"/></svg>
+          15:00 PM
+        </div>
+        <div style="margin-top:10px;"><span class="badge badge-orange">橙星组 Orange Stars</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="neon-divider" />
+
+<!-- ════════════════════════════════════ GROUPS ═══ -->
+<section id="groups" class="section">
+  <div class="container">
+    <h2 class="section-title neon-orange">
+      <span data-lang="zh">👥 参赛分组</span>
+      <span data-lang="en">👥 Player Groups</span>
+    </h2>
+
+    <div class="groups-tabs">
+      <button class="gtab active" onclick="switchGroup('yellow', this)">
+        🎾 <span data-lang="zh">黄球精英组</span><span data-lang="en">Yellow Ball</span>
+      </button>
+      <button class="gtab" onclick="switchGroup('green', this)">
+        🟢 <span data-lang="zh">绿翼组</span><span data-lang="en">Green Ball</span>
+      </button>
+    </div>
+
+    <!-- Yellow Ball -->
+    <div id="panel-yellow" class="group-panel active">
+      <div style="text-align:center;margin-bottom:24px;">
+        <span class="badge badge-yellow" style="font-size:.85rem;padding:8px 20px;">
+          <span data-lang="zh">精英组（黄球）· 10–16岁 · Elite Summit</span>
+          <span data-lang="en">Elite Summit (Yellow Ball) · Ages 10–16</span>
+        </span>
+      </div>
+      <div class="group-grid">
+
+        <div class="group-card">
+          <div class="group-header yellow">
+            <span class="group-name neon-orange">GROUP A</span>
+            <span class="badge badge-yellow">4 <span data-lang="zh">人</span><span data-lang="en">Players</span></span>
+          </div>
+          <table><tbody>
+            <tr><td class="player-num">1</td><td class="player-name">Oliver</td></tr>
+            <tr><td class="player-num">2</td><td class="player-name">Crystal</td></tr>
+            <tr><td class="player-num">3</td><td class="player-name">Bryan Y</td></tr>
+            <tr><td class="player-num">4</td><td class="player-name">Albert</td></tr>
+          </tbody></table>
+        </div>
+
+        <div class="group-card">
+          <div class="group-header yellow">
+            <span class="group-name neon-orange">GROUP B</span>
+            <span class="badge badge-yellow">4 <span data-lang="zh">人</span><span data-lang="en">Players</span></span>
+          </div>
+          <table><tbody>
+            <tr><td class="player-num">1</td><td class="player-name">Caleb</td></tr>
+            <tr><td class="player-num">2</td><td class="player-name">Gabriel</td></tr>
+            <tr><td class="player-num">3</td><td class="player-name">Sophia</td></tr>
+            <tr><td class="player-num">4</td><td class="player-name">Bryan Z</td></tr>
+          </tbody></table>
+        </div>
+
+        <div class="group-card">
+          <div class="group-header yellow">
+            <span class="group-name neon-orange">GROUP C</span>
+            <span class="badge badge-yellow">4 <span data-lang="zh">人</span><span data-lang="en">Players</span></span>
+          </div>
+          <table><tbody>
+            <tr><td class="player-num">1</td><td class="player-name">Richard</td></tr>
+            <tr><td class="player-num">2</td><td class="player-name">Ryan Y</td></tr>
+            <tr><td class="player-num">3</td><td class="player-name">Leo W</td></tr>
+            <tr><td class="player-num">4</td><td class="player-name">Terrence</td></tr>
+          </tbody></table>
+        </div>
+
+        <div class="group-card">
+          <div class="group-header yellow">
+            <span class="group-name neon-orange">GROUP D</span>
+            <span class="badge badge-yellow">4 <span data-lang="zh">人</span><span data-lang="en">Players</span></span>
+          </div>
+          <table><tbody>
+            <tr><td class="player-num">1</td><td class="player-name">Louis</td></tr>
+            <tr><td class="player-num">2</td><td class="player-name">Adam</td></tr>
+            <tr><td class="player-num">3</td><td class="player-name">Jerrel</td></tr>
+            <tr><td class="player-num">4</td><td class="player-name">Max</td></tr>
+          </tbody></table>
+        </div>
+
+        <div class="group-card">
+          <div class="group-header yellow">
+            <span class="group-name neon-orange">GROUP E</span>
+            <span class="badge badge-yellow">4 <span data-lang="zh">人</span><span data-lang="en">Players</span></span>
+          </div>
+          <table><tbody>
+            <tr><td class="player-num">1</td><td class="player-name">Amber</td></tr>
+            <tr><td class="player-num">2</td><td class="player-name">Ethan</td></tr>
+            <tr><td class="player-num">3</td><td class="player-name">Jason</td></tr>
+            <tr><td class="player-num">4</td><td class="player-name">Jeffrey</td></tr>
+          </tbody></table>
+        </div>
+
+        <div class="group-card">
+          <div class="group-header yellow">
+            <span class="group-name neon-orange">GROUP F</span>
+            <span class="badge badge-yellow">4 <span data-lang="zh">人</span><span data-lang="en">Players</span></span>
+          </div>
+          <table><tbody>
+            <tr><td class="player-num">1</td><td class="player-name">George</td></tr>
+            <tr><td class="player-num">2</td><td class="player-name">Leo X</td></tr>
+            <tr><td class="player-num">3</td><td class="player-name">Ryan C</td></tr>
+            <tr><td class="player-num">4</td><td class="player-name">Zinzan</td></tr>
+          </tbody></table>
+        </div>
+
+      </div>
+    </div><!-- /panel-yellow -->
+
+    <!-- Green Ball -->
+    <div id="panel-green" class="group-panel">
+      <div style="text-align:center;margin-bottom:24px;">
+        <span class="badge badge-green" style="font-size:.85rem;padding:8px 20px;">
+          <span data-lang="zh">绿翼组（绿球）· 8–12岁 · Green Wings</span>
+          <span data-lang="en">Green Wings (Green Ball) · Ages 8–12</span>
+        </span>
+      </div>
+      <div class="group-grid">
+
+        <div class="group-card">
+          <div class="group-header green">
+            <span class="group-name neon-green">GROUP A</span>
+            <span class="badge badge-green">5 <span data-lang="zh">人</span><span data-lang="en">Players</span></span>
+          </div>
+          <table><tbody>
+            <tr><td class="player-num">1</td><td class="player-name">Craig</td></tr>
+            <tr><td class="player-num">2</td><td class="player-name">Alisa</td></tr>
+            <tr><td class="player-num">3</td><td class="player-name">Esther</td></tr>
+            <tr><td class="player-num">4</td><td class="player-name">Laurence</td></tr>
+            <tr><td class="player-num">5</td><td class="player-name">Jessica</td></tr>
+          </tbody></table>
+        </div>
+
+        <div class="group-card">
+          <div class="group-header green">
+            <span class="group-name neon-green">GROUP B</span>
+            <span class="badge badge-green">5 <span data-lang="zh">人</span><span data-lang="en">Players</span></span>
+          </div>
+          <table><tbody>
+            <tr><td class="player-num">1</td><td class="player-name">Emme</td></tr>
+            <tr><td class="player-num">2</td><td class="player-name">Kirsten</td></tr>
+            <tr><td class="player-num">3</td><td class="player-name">Jiapu</td></tr>
+            <tr><td class="player-num">4</td><td class="player-name">Kaikai</td></tr>
+            <tr><td class="player-num">5</td><td class="player-name">Ryan Y</td></tr>
+          </tbody></table>
+        </div>
+
+        <div class="group-card">
+          <div class="group-header green">
+            <span class="group-name neon-green">GROUP C</span>
+            <span class="badge badge-green">5 <span data-lang="zh">人</span><span data-lang="en">Players</span></span>
+          </div>
+          <table><tbody>
+            <tr><td class="player-num">1</td><td class="player-name">Eddie</td></tr>
+            <tr><td class="player-num">2</td><td class="player-name">Allison</td></tr>
+            <tr><td class="player-num">3</td><td class="player-name">Ryan H</td></tr>
+            <tr><td class="player-num">4</td><td class="player-name">Grace</td></tr>
+            <tr><td class="player-num">5</td><td class="player-name">Archer</td></tr>
+          </tbody></table>
+        </div>
+
+        <div class="group-card">
+          <div class="group-header green">
+            <span class="group-name neon-green">GROUP D</span>
+            <span class="badge badge-green">5 <span data-lang="zh">人</span><span data-lang="en">Players</span></span>
+          </div>
+          <table><tbody>
+            <tr><td class="player-num">1</td><td class="player-name">Caleb</td></tr>
+            <tr><td class="player-num">2</td><td class="player-name">Nicholas</td></tr>
+            <tr><td class="player-num">3</td><td class="player-name">Peter</td></tr>
+            <tr><td class="player-num">4</td><td class="player-name">Leo</td></tr>
+            <tr><td class="player-num">5</td><td class="player-name">Bryan</td></tr>
+          </tbody></table>
+        </div>
+
+      </div>
+    </div><!-- /panel-green -->
+
+  </div>
+</section>
+
+<hr class="neon-divider" />
+
+<!-- ════════════════════════════════════ LIVE SCORES ═══ -->
+<section id="scores" class="section">
+  <div class="container">
+    <h2 class="section-title" style="color:var(--orange);text-shadow:var(--glow-o);">
+      <span data-lang="zh">🏆 实时比分</span>
+      <span data-lang="en">🏆 Live Scores</span>
+    </h2>
+    <div style="text-align:center;">
+      <div class="scores-live-badge">
+        <span data-lang="zh">实时更新</span>
+        <span data-lang="en">LIVE UPDATE</span>
+      </div>
+    </div>
+    <div class="scores-placeholder">
+
+      <div class="score-card">
+        <div class="score-event">
+          <span data-lang="zh">黄球单打 · 第一轮</span>
+          <span data-lang="en">Yellow Ball Singles · Round 1</span>
+        </div>
+        <div class="score-match">
+          <div class="score-player">Oliver</div>
+          <div class="score-val">-</div>
+        </div>
+        <div class="score-match">
+          <div class="score-player">Crystal</div>
+          <div class="score-val">-</div>
+        </div>
+        <div class="score-status pending">
+          <span data-lang="zh">待开赛</span>
+          <span data-lang="en">Pending</span>
+        </div>
+      </div>
+
+      <div class="score-card">
+        <div class="score-event">
+          <span data-lang="zh">黄球单打 · 第一轮</span>
+          <span data-lang="en">Yellow Ball Singles · Round 1</span>
+        </div>
+        <div class="score-match">
+          <div class="score-player">Caleb</div>
+          <div class="score-val">-</div>
+        </div>
+        <div class="score-match">
+          <div class="score-player">Gabriel</div>
+          <div class="score-val">-</div>
+        </div>
+        <div class="score-status pending">
+          <span data-lang="zh">待开赛</span>
+          <span data-lang="en">Pending</span>
+        </div>
+      </div>
+
+      <div class="score-card">
+        <div class="score-event">
+          <span data-lang="zh">绿翼组 · 第一轮</span>
+          <span data-lang="en">Green Wings · Round 1</span>
+        </div>
+        <div class="score-match">
+          <div class="score-player">Craig</div>
+          <div class="score-val">-</div>
+        </div>
+        <div class="score-match">
+          <div class="score-player">Alisa</div>
+          <div class="score-val">-</div>
+        </div>
+        <div class="score-status pending">
+          <span data-lang="zh">待开赛</span>
+          <span data-lang="en">Pending</span>
+        </div>
+      </div>
+
+    </div>
+    <p class="scores-note">
+      <span data-lang="zh">比赛期间将在此实时更新比分，请持续关注。</span>
+      <span data-lang="en">Scores will be updated live during the tournament. Stay tuned!</span>
+    </p>
+  </div>
+</section>
+
+<hr class="neon-divider" />
+
+<!-- ════════════════════════════════════ SPONSORS ═══ -->
+<section id="sponsors" class="section">
+  <div class="container">
+    <h2 class="section-title" style="color:var(--yellow);text-shadow:0 0 16px rgba(255,230,0,.5);">
+      <span data-lang="zh">🤝 赞助商</span>
+      <span data-lang="en">🤝 Sponsors</span>
+    </h2>
+    <p class="sponsor-title-note" style="margin-bottom:30px;">
+      <strong>
+        <span data-lang="zh">独家冠名赞助</span>
+        <span data-lang="en">Title Sponsor</span>
+      </strong>
+      &nbsp;·&nbsp;
+      <span data-lang="zh">联合赞助商</span>
+      <span data-lang="en">Co-Sponsors</span>
+    </p>
+
+    <div class="marquee-track">
+      <div class="marquee-inner">
+        <!-- set 1 -->
+        <div class="sponsor-chip" style="color:#a259f7;border-color:rgba(162,89,247,.3);">▲ AREA 51</div>
+        <div class="sponsor-chip red">ROBAM 老板</div>
+        <div class="sponsor-chip orange">Akira</div>
+        <div class="sponsor-chip blue">99HOME</div>
+        <div class="sponsor-chip green">澳洲印象 App</div>
+        <div class="sponsor-chip" style="color:#e91e63;">新传媒</div>
+        <div class="sponsor-chip" style="color:#00bcd4;">Gem Sports</div>
+        <div class="sponsor-chip" style="color:#9e9e9e;">NP</div>
+        <!-- set 2 (duplicate for seamless loop) -->
+        <div class="sponsor-chip" style="color:#a259f7;border-color:rgba(162,89,247,.3);">▲ AREA 51</div>
+        <div class="sponsor-chip red">ROBAM 老板</div>
+        <div class="sponsor-chip orange">Akira</div>
+        <div class="sponsor-chip blue">99HOME</div>
+        <div class="sponsor-chip green">澳洲印象 App</div>
+        <div class="sponsor-chip" style="color:#e91e63;">新传媒</div>
+        <div class="sponsor-chip" style="color:#00bcd4;">Gem Sports</div>
+        <div class="sponsor-chip" style="color:#9e9e9e;">NP</div>
+      </div>
+    </div>
+
+    <p class="sponsor-title-note">
+      <span data-lang="zh">如需赞助合作，请联系赛事组委会</span>
+      <span data-lang="en">For sponsorship enquiries, please contact the tournament organiser</span>
+    </p>
+  </div>
+</section>
+
+<hr class="neon-divider" />
+
+<!-- ════════════════════════════════════ MAP ═══ -->
+<section id="map-section" class="section">
+  <div class="container">
+    <h2 class="section-title neon-blue">
+      <span data-lang="zh">📍 比赛地点</span>
+      <span data-lang="en">📍 Venue</span>
+    </h2>
+    <div class="map-card">
+      <div class="map-icon">🎾</div>
+      <div class="map-title">The Sheldon Tennis Center</div>
+      <div class="map-addr">
+        <span data-lang="zh">昆士兰州 · Queensland, Australia</span>
+        <span data-lang="en">Queensland, Australia</span>
+      </div>
+      <a href="https://maps.google.com/?q=The+Sheldon+Tennis+Center+Queensland+Australia"
+         target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin:0 auto;display:inline-flex;">
+        <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <span data-lang="zh">在 Google 地图中打开</span>
+        <span data-lang="en">Open in Google Maps</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="neon-divider" />
+
+<!-- ════════════════════════════════════ FOOTER ═══ -->
+<footer>
+  <div class="footer-title">2026 AREA 51 CUP</div>
+  <div class="footer-sub">
+    <span data-lang="zh">昆士兰青少年网球锦标赛 · Queensland Junior Tennis Championships</span>
+    <span data-lang="en">Queensland Junior Tennis Championships · UTR Verified Event</span>
+  </div>
+  <div class="footer-links">
+    <a href="#hero"><span data-lang="zh">首页</span><span data-lang="en">Home</span></a>
+    <a href="#schedule"><span data-lang="zh">赛程</span><span data-lang="en">Schedule</span></a>
+    <a href="#groups"><span data-lang="zh">分组</span><span data-lang="en">Groups</span></a>
+    <a href="#scores"><span data-lang="zh">比分</span><span data-lang="en">Scores</span></a>
+    <a href="#sponsors"><span data-lang="zh">赞助商</span><span data-lang="en">Sponsors</span></a>
+    <a href="#map-section"><span data-lang="zh">地点</span><span data-lang="en">Venue</span></a>
+  </div>
+  <div class="footer-copy">
+    © 2026 Area 51 Cup · All Rights Reserved · UTR Verified Event
+  </div>
+</footer>
+
+<!-- ════════════════════════════════════ SCRIPTS ═══ -->
+<script>
+  /* ── Language Toggle ── */
+  function toggleLang() {
+    const body = document.body;
+    const btn  = document.getElementById('lang-toggle');
+    if (body.classList.contains('lang-zh')) {
+      body.classList.replace('lang-zh', 'lang-en');
+      btn.textContent = 'CN';
+    } else {
+      body.classList.replace('lang-en', 'lang-zh');
+      btn.textContent = 'EN';
+    }
+  }
+
+  /* ── Navbar scroll shadow ── */
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  /* ── Countdown Timer ── */
+  // Target: 2026-03-03 08:30:00 AEST (UTC+10)
+  const target = new Date('2026-03-03T08:30:00+10:00').getTime();
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function updateCountdown() {
+    const now  = Date.now();
+    const diff = target - now;
+    if (diff <= 0) {
+      document.getElementById('cd-wrap').style.display = 'none';
+      document.getElementById('countdown-finished').style.display = 'block';
+      return;
+    }
+    const days  = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins  = Math.floor((diff % 3600000)  / 60000);
+    const secs  = Math.floor((diff % 60000)    / 1000);
+    document.getElementById('cd-days').textContent  = pad(days);
+    document.getElementById('cd-hours').textContent = pad(hours);
+    document.getElementById('cd-mins').textContent  = pad(mins);
+    document.getElementById('cd-secs').textContent  = pad(secs);
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  /* ── Group Tabs ── */
+  function switchGroup(name, btn) {
+    document.querySelectorAll('.group-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.gtab').forEach(b => b.classList.remove('active'));
+    document.getElementById('panel-' + name).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>
