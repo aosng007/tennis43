@@ -771,8 +771,8 @@
   <ul class="nav-links">
     <li><a href="#schedule"><span data-lang="zh">赛程</span><span data-lang="en">Schedule</span></a></li>
     <li><a href="#groups"><span data-lang="zh">分组</span><span data-lang="en">Groups</span></a></li>
-    <li><a href="#guide"><span data-lang="zh">参赛须知</span><span data-lang="en">Guide</span></a></li>
     <li><a href="#rules"><span data-lang="zh">规则</span><span data-lang="en">Rules</span></a></li>
+    <li><a href="#guide"><span data-lang="zh">参赛须知</span><span data-lang="en">Guide</span></a></li>
     <li><a href="#sponsors"><span data-lang="zh">赞助商</span><span data-lang="en">Sponsors</span></a></li>
     <li><a href="#map-section"><span data-lang="zh">地点</span><span data-lang="en">Venue</span></a></li>
   </ul>
@@ -816,10 +816,6 @@
       <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
       <span>
         <a href="https://maps.google.com/?q=The+Sheldon+Tennis+Center+Queensland+Australia" target="_blank" rel="noopener noreferrer">The Sheldon Tennis Center, Queensland</a>
-        <span class="hero-location-warning">
-          <span data-lang="zh">⚠️ 请勿前往南侧入口！</span>
-          <span data-lang="en">⚠️ DO NOT go to the South side!</span>
-        </span>
       </span>
     </div>
 
@@ -995,6 +991,9 @@
       </button>
       <button class="gtab" data-tab="orange" onclick="switchGroup('orange', this)">
         🟠 <span data-lang="zh">橙星组</span><span data-lang="en">Orange Stars</span>
+      </button>
+      <button class="gtab" data-tab="doubles" onclick="switchGroup('doubles', this)">
+        🎾 <span data-lang="zh">精英组黄球双打</span><span data-lang="en">Elite Yellow Ball Doubles</span>
       </button>
     </div>
 
@@ -1179,138 +1178,79 @@
       </div>
     </div><!-- /panel-orange -->
 
-  </div>
-</section>
-
-<hr class="neon-divider" />
-
-<!-- ════════════════════════════════════ PLAYER & PARENT GUIDE ═══ -->
-<section id="guide" class="section">
-  <div class="container">
-    <h2 class="section-title neon-blue">
-      <span data-lang="zh">📖 参赛及观赛须知</span>
-      <span data-lang="en">📖 Player &amp; Parent Guide</span>
-    </h2>
-
-    <div class="guide-grid">
-
-      <!-- Preparation -->
-      <div class="guide-card">
-        <div class="guide-card-icon">🎽🍌🥤</div>
-        <div class="guide-card-title">
-          <span data-lang="zh">赛前准备</span>
-          <span data-lang="en">Preparation</span>
-        </div>
-        <div class="guide-card-body">
-          <span data-lang="zh">
-            <p>穿有口袋的运动服（方便携带备用球）。</p>
-            <p>请备好水、运动饮料、香蕉及零食，防止低血糖。</p>
-          </span>
-          <span data-lang="en">
-            <p>Wear clothes with pockets (to carry extra balls).</p>
-            <p>Bring water, sports drinks, bananas &amp; snacks to prevent low blood sugar.</p>
-          </span>
-        </div>
-      </div>
-
-      <!-- Sun Safety -->
-      <div class="guide-card yellow-card">
-        <div class="guide-card-icon">☀️</div>
-        <div class="guide-card-title">
-          <span data-lang="zh">防晒提示</span>
-          <span data-lang="en">Sun Safety</span>
-        </div>
-        <div class="guide-card-body">
-          <span data-lang="zh">
-            <p>即使温度适宜，也请务必涂抹防晒霜，保护皮肤。</p>
-          </span>
-          <span data-lang="en">
-            <p>Apply sunscreen even if the temperature feels comfortable. Protect your skin!</p>
-          </span>
-        </div>
-      </div>
-
-      <!-- Etiquette -->
-      <div class="guide-card green-card">
-        <div class="guide-card-icon">🤝🤫</div>
-        <div class="guide-card-title">
-          <span data-lang="zh">比赛礼仪</span>
-          <span data-lang="en">Etiquette</span>
-        </div>
-        <div class="guide-card-body">
-          <span data-lang="zh">
-            <p>每场比赛结束后，请在网前与对手握手。🤝</p>
-            <p>观赛家长：打球期间请保持安静，得分结束后再欢呼加油。🤫</p>
-          </span>
-          <span data-lang="en">
-            <p>Shake hands at the net after every match. 🤝</p>
-            <p>Spectators: Keep quiet during points — cheer only after the point is over. 🤫</p>
-          </span>
-        </div>
-      </div>
-
-      <!-- Parental Help -->
-      <div class="guide-card orange-card">
-        <div class="guide-card-icon">🟠🟢👨‍👩‍👧</div>
-        <div class="guide-card-title">
-          <span data-lang="zh">家长协助</span>
-          <span data-lang="en">Parental Help</span>
-        </div>
-        <div class="guide-card-body">
-          <span data-lang="zh">
-            <p><strong>橙球组</strong>和<strong>绿翼组</strong>的家长请站在边线旁协助捡球，保持比赛流畅进行。</p>
-          </span>
-          <span data-lang="en">
-            <p>Parents of <strong>Orange</strong> and <strong>Green</strong> groups, please stand by the sidelines to help pick up balls and keep the game flowing.</p>
-          </span>
-        </div>
-      </div>
-
-      <!-- Health & Safety -->
-      <div class="guide-card red-card">
-        <div class="guide-card-icon">🏥</div>
-        <div class="guide-card-title">
-          <span data-lang="zh">健康与安全</span>
-          <span data-lang="en">Health &amp; Safety</span>
-        </div>
-        <div class="guide-card-body">
-          <span data-lang="zh">
-            <p>若孩子感到不适或受伤，请立即告知组委会（Eric 教练 / 团队）。</p>
-          </span>
-          <span data-lang="en">
-            <p>If a child feels unwell or is injured, inform the committee (Coach Eric / Team) immediately.</p>
-          </span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<hr class="neon-divider" />
-
-<!-- ════════════════════════════════════ PROMOTION ═══ -->
-<section id="promotion" class="section">
-  <div class="container">
-    <h2 class="section-title" style="color:var(--yellow);text-shadow:0 0 16px rgba(255,230,0,.5);">
-      <span data-lang="zh">📈 升级制度</span>
-      <span data-lang="en">📈 Promotion System</span>
-    </h2>
-    <div class="promo-card">
-      <div class="promo-icon">🏆📈🎾</div>
-      <div class="promo-title">
-        <span data-lang="zh">优秀选手将在下届赛事中晋级更高级别！</span>
-        <span data-lang="en">Outstanding Players Will Be Promoted!</span>
-      </div>
-      <div class="promo-body">
-        <span data-lang="zh">
-          <p>表现出色的选手将在下一届锦标赛中晋升至更高级别。<strong>精英组</strong>的顶尖选手甚至有机会受邀参加<strong>成人组赛事</strong>！📈</p>
-        </span>
-        <span data-lang="en">
-          <p>Outstanding players will be promoted to higher levels at the next tournament! <strong>Top performers</strong> in the Elite Group will even be invited to participate in <strong>Adult Tournaments</strong>! 📈</p>
+    <!-- Elite Yellow Ball Doubles -->
+    <div id="panel-doubles" class="group-panel">
+      <div style="text-align:center;margin-bottom:24px;">
+        <span class="badge badge-yellow" style="font-size:.85rem;padding:8px 20px;">
+          <span data-lang="zh">精英组黄球双打 · Elite Yellow Ball Doubles</span>
+          <span data-lang="en">Elite Yellow Ball Doubles · 精英组黄球双打</span>
         </span>
       </div>
-    </div>
+      <div class="group-grid">
+
+        <div class="group-card">
+          <div class="group-header yellow">
+            <span class="group-name neon-orange">PAIR 1</span>
+          </div>
+          <table><tbody>
+            <tr><td class="player-num">1</td><td class="player-name">Oliver</td></tr>
+            <tr><td class="player-num">2</td><td class="player-name">Crystal</td></tr>
+          </tbody></table>
+        </div>
+
+        <div class="group-card">
+          <div class="group-header yellow">
+            <span class="group-name neon-orange">PAIR 2</span>
+          </div>
+          <table><tbody>
+            <tr><td class="player-num">1</td><td class="player-name">Caleb</td></tr>
+            <tr><td class="player-num">2</td><td class="player-name">Gabriel</td></tr>
+          </tbody></table>
+        </div>
+
+        <div class="group-card">
+          <div class="group-header yellow">
+            <span class="group-name neon-orange">PAIR 3</span>
+          </div>
+          <table><tbody>
+            <tr><td class="player-num">1</td><td class="player-name">Richard</td></tr>
+            <tr><td class="player-num">2</td><td class="player-name">Ryan Y</td></tr>
+          </tbody></table>
+        </div>
+
+        <div class="group-card">
+          <div class="group-header yellow">
+            <span class="group-name neon-orange">PAIR 4</span>
+          </div>
+          <table><tbody>
+            <tr><td class="player-num">1</td><td class="player-name">Louis</td></tr>
+            <tr><td class="player-num">2</td><td class="player-name">Adam</td></tr>
+          </tbody></table>
+        </div>
+
+        <div class="group-card">
+          <div class="group-header yellow">
+            <span class="group-name neon-orange">PAIR 5</span>
+          </div>
+          <table><tbody>
+            <tr><td class="player-num">1</td><td class="player-name">Amber</td></tr>
+            <tr><td class="player-num">2</td><td class="player-name">Ethan</td></tr>
+          </tbody></table>
+        </div>
+
+        <div class="group-card">
+          <div class="group-header yellow">
+            <span class="group-name neon-orange">PAIR 6</span>
+          </div>
+          <table><tbody>
+            <tr><td class="player-num">1</td><td class="player-name">George</td></tr>
+            <tr><td class="player-num">2</td><td class="player-name">Leo X</td></tr>
+          </tbody></table>
+        </div>
+
+      </div>
+    </div><!-- /panel-doubles -->
+
   </div>
 </section>
 
@@ -1435,6 +1375,111 @@
 
 <hr class="neon-divider" />
 
+<!-- ════════════════════════════════════ PLAYER & PARENT GUIDE ═══ -->
+<section id="guide" class="section">
+  <div class="container">
+    <h2 class="section-title neon-blue">
+      <span data-lang="zh">📖 参赛及观赛须知</span>
+      <span data-lang="en">📖 Player &amp; Parent Guide</span>
+    </h2>
+
+    <div class="guide-grid">
+
+      <!-- Preparation -->
+      <div class="guide-card">
+        <div class="guide-card-icon">🎽🍌🥤</div>
+        <div class="guide-card-title">
+          <span data-lang="zh">赛前准备</span>
+          <span data-lang="en">Preparation</span>
+        </div>
+        <div class="guide-card-body">
+          <span data-lang="zh">
+            <p>穿有口袋的运动服（方便携带备用球）。</p>
+            <p>请备好水、运动饮料、香蕉及零食，防止低血糖。</p>
+          </span>
+          <span data-lang="en">
+            <p>Wear clothes with pockets (to carry extra balls).</p>
+            <p>Bring water, sports drinks, bananas &amp; snacks to prevent low blood sugar.</p>
+          </span>
+        </div>
+      </div>
+
+      <!-- Sun Safety -->
+      <div class="guide-card yellow-card">
+        <div class="guide-card-icon">☀️</div>
+        <div class="guide-card-title">
+          <span data-lang="zh">防晒提示</span>
+          <span data-lang="en">Sun Safety</span>
+        </div>
+        <div class="guide-card-body">
+          <span data-lang="zh">
+            <p>即使温度适宜，也请务必涂抹防晒霜，保护皮肤。</p>
+          </span>
+          <span data-lang="en">
+            <p>Apply sunscreen even if the temperature feels comfortable. Protect your skin!</p>
+          </span>
+        </div>
+      </div>
+
+      <!-- Etiquette -->
+      <div class="guide-card green-card">
+        <div class="guide-card-icon">🤝🤫</div>
+        <div class="guide-card-title">
+          <span data-lang="zh">比赛礼仪</span>
+          <span data-lang="en">Etiquette</span>
+        </div>
+        <div class="guide-card-body">
+          <span data-lang="zh">
+            <p>每场比赛结束后，请在网前与对手握手。🤝</p>
+            <p>观赛家长：打球期间请保持安静，得分结束后再欢呼加油。🤫</p>
+          </span>
+          <span data-lang="en">
+            <p>Shake hands at the net after every match. 🤝</p>
+            <p>Spectators: Keep quiet during points — cheer only after the point is over. 🤫</p>
+          </span>
+        </div>
+      </div>
+
+      <!-- Parental Help -->
+      <div class="guide-card orange-card">
+        <div class="guide-card-icon">🟠🟢👨‍👩‍👧</div>
+        <div class="guide-card-title">
+          <span data-lang="zh">家长协助</span>
+          <span data-lang="en">Parental Help</span>
+        </div>
+        <div class="guide-card-body">
+          <span data-lang="zh">
+            <p><strong>橙球组</strong>和<strong>绿翼组</strong>的家长请站在边线旁协助捡球，保持比赛流畅进行。</p>
+          </span>
+          <span data-lang="en">
+            <p>Parents of <strong>Orange</strong> and <strong>Green</strong> groups, please stand by the sidelines to help pick up balls and keep the game flowing.</p>
+          </span>
+        </div>
+      </div>
+
+      <!-- Health & Safety -->
+      <div class="guide-card red-card">
+        <div class="guide-card-icon">🏥</div>
+        <div class="guide-card-title">
+          <span data-lang="zh">健康与安全</span>
+          <span data-lang="en">Health &amp; Safety</span>
+        </div>
+        <div class="guide-card-body">
+          <span data-lang="zh">
+            <p>若孩子感到不适或受伤，请立即告知组委会（Eric 教练 / 团队）。</p>
+          </span>
+          <span data-lang="en">
+            <p>If a child feels unwell or is injured, inform the committee (Coach Eric / Team) immediately.</p>
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="neon-divider" />
+
 <!-- ════════════════════════════════════ SPONSORS ═══ -->
 <section id="sponsors" class="section">
   <div class="container">
@@ -1498,10 +1543,6 @@
         <span data-lang="zh">昆士兰州 · Queensland, Australia</span>
         <span data-lang="en">Queensland, Australia</span>
       </div>
-      <div class="map-warning">
-        <span data-lang="zh">📍 比赛地点：The Sheldon Tennis Center（请勿前往南侧！）</span>
-        <span data-lang="en">📍 Location: The Sheldon Tennis Center (DO NOT go to the South side!)</span>
-      </div>
       <a href="https://maps.google.com/?q=The+Sheldon+Tennis+Center+Queensland+Australia"
          target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin:0 auto;display:inline-flex;">
         <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
@@ -1511,55 +1552,6 @@
     </div>
   </div>
 </section>
-
-<hr class="neon-divider" />
-
-<!-- ════════════════════════════════════ COMMITTEE ═══ -->
-<section id="committee" class="section">
-  <div class="container">
-    <h2 class="section-title neon-blue">
-      <span data-lang="zh">🏅 赛事组委会</span>
-      <span data-lang="en">🏅 Tournament Committee</span>
-    </h2>
-
-    <div class="committee-org">
-      <strong>
-        <span data-lang="zh">主办单位：布里斯班华人网球会（Brisbane Chinese Tennis Association）</span>
-        <span data-lang="en">Organizer: Brisbane Chinese Tennis Association (布里斯班华人网球会)</span>
-      </strong>
-    </div>
-
-    <div class="committee-grid">
-
-      <div class="committee-card">
-        <div class="committee-role">
-          <span data-lang="zh">监督</span>
-          <span data-lang="en">Supervision</span>
-        </div>
-        <div class="committee-name">Coach Eric</div>
-      </div>
-
-      <div class="committee-card">
-        <div class="committee-role">
-          <span data-lang="zh">现场解说</span>
-          <span data-lang="en">Live Commentary</span>
-        </div>
-        <div class="committee-name">Coach Zhou</div>
-      </div>
-
-      <div class="committee-card">
-        <div class="committee-role">
-          <span data-lang="zh">裁判员</span>
-          <span data-lang="en">Referees</span>
-        </div>
-        <div class="committee-name" style="font-size:.9rem;">Coach Tian · Hayden · Jay · Gemma · Kevin S…</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<hr class="neon-divider" />
 
 <!-- ════════════════════════════════════ FOOTER ═══ -->
 <footer>
@@ -1572,11 +1564,9 @@
     <a href="#hero"><span data-lang="zh">首页</span><span data-lang="en">Home</span></a>
     <a href="#schedule"><span data-lang="zh">赛程</span><span data-lang="en">Schedule</span></a>
     <a href="#groups"><span data-lang="zh">分组</span><span data-lang="en">Groups</span></a>
-    <a href="#guide"><span data-lang="zh">参赛须知</span><span data-lang="en">Guide</span></a>
     <a href="#rules"><span data-lang="zh">规则</span><span data-lang="en">Rules</span></a>
-    <a href="#promotion"><span data-lang="zh">升级制度</span><span data-lang="en">Promotion</span></a>
+    <a href="#guide"><span data-lang="zh">参赛须知</span><span data-lang="en">Guide</span></a>
     <a href="#sponsors"><span data-lang="zh">赞助商</span><span data-lang="en">Sponsors</span></a>
-    <a href="#committee"><span data-lang="zh">组委会</span><span data-lang="en">Committee</span></a>
     <a href="#map-section"><span data-lang="zh">地点</span><span data-lang="en">Venue</span></a>
   </div>
   <div class="footer-copy">
