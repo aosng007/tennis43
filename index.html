@@ -561,6 +561,10 @@
     .rules-body p { margin-bottom: 8px; }
     .rules-body p:last-child { margin-bottom: 0; }
     .rules-body strong { color: var(--item-color); }
+    .rules-body ul { margin: 6px 0 10px 1.2em; padding: 0; list-style: disc; }
+    .rules-body ul:last-child { margin-bottom: 0; }
+    .rules-body li { margin-bottom: 5px; }
+    .rules-body li:last-child { margin-bottom: 0; }
     /* Ranking sub-section */
     .ranking-section {
       margin-top: 32px;
@@ -1017,10 +1021,16 @@
           </span>
         </summary>
         <div class="rules-body">
-          <p data-lang="zh">24位选手分6组单循环。每组前二及上下午组各2个最佳第三名晋级16强。</p>
-          <p data-lang="zh">Full Set金球赛制，无Deuce。5-5后第11局<strong>抢5</strong>决胜。</p>
-          <p data-lang="en">24 players in 6 groups (Round Robin). Top 2 from each group + 2 best 3rd places (AM/PM) advance to Round of 16.</p>
-          <p data-lang="en">Full set, Golden Goal (No Deuce). Tie-break (<strong>First to 5</strong>) if score reaches 5-5.</p>
+          <ul data-lang="zh">
+            <li><strong>赛制：</strong>一盘定胜负（先到6局获胜）。</li>
+            <li><strong>无Deuce：</strong>金球赛制（40-40时直接决胜分）。</li>
+            <li><strong>决胜局：</strong>若局数达到5-5，第11局进行<strong>抢5</strong>决胜，最终比分为6-5。</li>
+          </ul>
+          <ul data-lang="en">
+            <li><strong>Format:</strong> Full Set — first to 6 games wins the match.</li>
+            <li><strong>No Deuce:</strong> Golden Goal rule applies at 40-40.</li>
+            <li><strong>Deciding Game:</strong> If score reaches 5-5, the 11th game is a Tie-break (<strong>First to 5</strong>); final score 6-5.</li>
+          </ul>
         </div>
       </details>
 
@@ -1033,10 +1043,16 @@
           </span>
         </summary>
         <div class="rules-body">
-          <p data-lang="zh">20位选手分4组单循环。每组前二晋级8强。</p>
-          <p data-lang="zh">三局两胜（<strong>抢8</strong>），若1-1则第三局<strong>抢5</strong>决胜。全场无Deuce。</p>
-          <p data-lang="en">20 players in 4 groups (Round Robin). Top 2 advance to Quarter-finals.</p>
-          <p data-lang="en">Best of 3 sets (<strong>First to 8</strong>). If 1-1, 3rd set tie-break (<strong>First to 5</strong>). No Deuce.</p>
+          <ul data-lang="zh">
+            <li><strong>赛制：</strong>三局两胜制，前两局为<strong>抢8</strong>（先得8分）获胜。</li>
+            <li><strong>决胜局：</strong>若局数1-1，第三局进行<strong>抢5</strong>决胜。</li>
+            <li><strong>无Deuce：</strong>全场突然死亡法。</li>
+          </ul>
+          <ul data-lang="en">
+            <li><strong>Format:</strong> Best of 3 Sets — each set is a Tie-break (<strong>First to 8</strong> points).</li>
+            <li><strong>Deciding Set:</strong> If sets are 1-1, the 3rd set is a Tie-break (<strong>First to 5</strong> points).</li>
+            <li><strong>No Deuce:</strong> All games are sudden death.</li>
+          </ul>
         </div>
       </details>
 
@@ -1049,10 +1065,16 @@
           </span>
         </summary>
         <div class="rules-body">
-          <p data-lang="zh">16位选手分4组单循环。每组前二晋级8强。</p>
-          <p data-lang="zh"><strong>抢15</strong>赛制，无Deuce。</p>
-          <p data-lang="en">16 players in 4 groups (Round Robin). Top 2 advance to Quarter-finals.</p>
-          <p data-lang="en"><strong>First to 15 points</strong>. No Deuce.</p>
+          <ul data-lang="zh">
+            <li><strong>赛制：</strong>三局两胜制，前两局为<strong>抢8</strong>（先得8分）获胜。</li>
+            <li><strong>决胜局：</strong>若局数1-1，第三局进行<strong>抢5</strong>决胜。</li>
+            <li><strong>无Deuce：</strong>全场突然死亡法。</li>
+          </ul>
+          <ul data-lang="en">
+            <li><strong>Format:</strong> Best of 3 Sets — each set is a Tie-break (<strong>First to 8</strong> points).</li>
+            <li><strong>Deciding Set:</strong> If sets are 1-1, the 3rd set is a Tie-break (<strong>First to 5</strong> points).</li>
+            <li><strong>No Deuce:</strong> All games are sudden death.</li>
+          </ul>
         </div>
       </details>
 
@@ -1089,8 +1111,8 @@
         <li>
           <span class="ranking-num">★</span>
           <span>
-            <span data-lang="zh"><strong style="color:var(--yellow)">黄球最佳第三名</strong> — 各组第三名依胜负关系 → 净胜局 → 总积分比较，上下午组各取2名晋级16强</span>
-            <span data-lang="en"><strong style="color:var(--yellow)">Yellow Ball 3rd Place</strong> — Among all 3rd-place players: H2H → Net Games → Total Points. Best 2 from AM &amp; PM groups advance to Round of 16</span>
+            <span data-lang="zh"><strong style="color:var(--yellow)">黄球最佳第三名</strong> — 先比较与第1种子的对战结果，若仍相同则比较与第2种子的对战结果</span>
+            <span data-lang="en"><strong style="color:var(--yellow)">Yellow Ball 3rd Place</strong> — Compare results against the 1st seed; if still tied, compare against the 2nd seed</span>
           </span>
         </li>
       </ul>
