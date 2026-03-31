@@ -508,6 +508,111 @@
       line-height: 1.8;
     }
 
+    /* ── Tournament Rules Accordion ── */
+    #rules { background: var(--bg3); }
+    .rules-accordion { display: flex; flex-direction: column; gap: 12px; }
+    .rules-item {
+      background: rgba(19,28,46,.75);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1.5px solid var(--border);
+      transition: border-color .3s, box-shadow .3s;
+    }
+    .rules-item.yellow-item { --item-color: var(--blue);   --item-glow: var(--glow-b); --item-bg: rgba(0,170,255,.08); }
+    .rules-item.green-item  { --item-color: var(--green);  --item-glow: var(--glow-g); --item-bg: rgba(57,255,20,.07); }
+    .rules-item.orange-item { --item-color: var(--orange); --item-glow: var(--glow-o); --item-bg: rgba(255,106,0,.08); }
+    .rules-item[open] {
+      border-color: var(--item-color);
+      box-shadow: 0 0 24px rgba(0,0,0,.3), 0 0 2px var(--item-color);
+    }
+    .rules-summary {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: clamp(.95rem, 2.5vw, 1.1rem);
+      letter-spacing: 1px;
+      color: var(--item-color);
+      text-shadow: var(--item-glow);
+      background: var(--item-bg);
+      user-select: none;
+      gap: 12px;
+    }
+    .rules-summary::-webkit-details-marker { display: none; }
+    .rules-summary::marker { display: none; }
+    .rules-summary::after {
+      content: '▼';
+      font-size: .75rem;
+      transition: transform .3s;
+      flex-shrink: 0;
+    }
+    details[open] > .rules-summary::after { transform: rotate(180deg); }
+    .rules-body {
+      padding: 20px 24px 24px;
+      font-size: .92rem;
+      line-height: 1.8;
+      color: var(--text);
+    }
+    .rules-body p { margin-bottom: 8px; }
+    .rules-body p:last-child { margin-bottom: 0; }
+    .rules-body strong { color: var(--item-color); }
+    /* Ranking sub-section */
+    .ranking-section {
+      margin-top: 32px;
+      padding: 24px;
+      background: rgba(19,28,46,.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,230,0,.25);
+      border-radius: 14px;
+    }
+    .ranking-title {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--yellow);
+      text-shadow: 0 0 12px rgba(255,230,0,.4);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    .ranking-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .ranking-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: .9rem;
+      line-height: 1.6;
+    }
+    .ranking-num {
+      min-width: 26px;
+      height: 26px;
+      background: rgba(255,230,0,.12);
+      border: 1px solid rgba(255,230,0,.4);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .72rem;
+      font-weight: 900;
+      color: var(--yellow);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    @media (max-width: 480px) {
+      .rules-summary { padding: 14px 16px; font-size: .9rem; }
+      .rules-body    { padding: 14px 16px 18px; font-size: .87rem; }
+      .ranking-section { padding: 18px 16px; }
+      .ranking-list li { font-size: .86rem; }
+    }
+
     /* ── Divider lines ── */
     .neon-divider {
       height: 2px;
@@ -525,6 +630,7 @@
   <ul class="nav-links">
     <li><a href="#schedule"><span data-lang="zh">赛程</span><span data-lang="en">Schedule</span></a></li>
     <li><a href="#groups"><span data-lang="zh">分组</span><span data-lang="en">Groups</span></a></li>
+    <li><a href="#rules"><span data-lang="zh">规则</span><span data-lang="en">Rules</span></a></li>
     <li><a href="#sponsors"><span data-lang="zh">赞助商</span><span data-lang="en">Sponsors</span></a></li>
     <li><a href="#map-section"><span data-lang="zh">地点</span><span data-lang="en">Venue</span></a></li>
   </ul>
@@ -892,6 +998,109 @@
 
 <hr class="neon-divider" />
 
+<!-- ════════════════════════════════════ RULES ═══ -->
+<section id="rules" class="section">
+  <div class="container">
+    <h2 class="section-title neon-blue">
+      <span data-lang="zh">📋 比赛规则</span>
+      <span data-lang="en">📋 Tournament Rules</span>
+    </h2>
+
+    <div class="rules-accordion">
+
+      <!-- ── Yellow Ball ── -->
+      <details class="rules-item yellow-item">
+        <summary class="rules-summary">
+          <span>
+            <span data-lang="zh">🎾 黄球组 Yellow Ball</span>
+            <span data-lang="en">🎾 Yellow Ball 黄球组</span>
+          </span>
+        </summary>
+        <div class="rules-body">
+          <p data-lang="zh">24位选手分6组单循环。每组前二及上下午组各2个最佳第三名晋级16强。</p>
+          <p data-lang="zh">Full Set金球赛制，无Deuce。5-5后第11局<strong>抢5</strong>决胜。</p>
+          <p data-lang="en">24 players in 6 groups (Round Robin). Top 2 from each group + 2 best 3rd places (AM/PM) advance to Round of 16.</p>
+          <p data-lang="en">Full set, Golden Goal (No Deuce). Tie-break (<strong>First to 5</strong>) if score reaches 5-5.</p>
+        </div>
+      </details>
+
+      <!-- ── Green Ball ── -->
+      <details class="rules-item green-item">
+        <summary class="rules-summary">
+          <span>
+            <span data-lang="zh">🎾 绿翼组 Green Ball</span>
+            <span data-lang="en">🎾 Green Ball 绿翼组</span>
+          </span>
+        </summary>
+        <div class="rules-body">
+          <p data-lang="zh">20位选手分4组单循环。每组前二晋级8强。</p>
+          <p data-lang="zh">三局两胜（<strong>抢8</strong>），若1-1则第三局<strong>抢5</strong>决胜。全场无Deuce。</p>
+          <p data-lang="en">20 players in 4 groups (Round Robin). Top 2 advance to Quarter-finals.</p>
+          <p data-lang="en">Best of 3 sets (<strong>First to 8</strong>). If 1-1, 3rd set tie-break (<strong>First to 5</strong>). No Deuce.</p>
+        </div>
+      </details>
+
+      <!-- ── Orange Stars ── -->
+      <details class="rules-item orange-item">
+        <summary class="rules-summary">
+          <span>
+            <span data-lang="zh">🎾 橙星组 Orange Stars</span>
+            <span data-lang="en">🎾 Orange Stars 橙星组</span>
+          </span>
+        </summary>
+        <div class="rules-body">
+          <p data-lang="zh">16位选手分4组单循环。每组前二晋级8强。</p>
+          <p data-lang="zh"><strong>抢15</strong>赛制，无Deuce。</p>
+          <p data-lang="en">16 players in 4 groups (Round Robin). Top 2 advance to Quarter-finals.</p>
+          <p data-lang="en"><strong>First to 15 points</strong>. No Deuce.</p>
+        </div>
+      </details>
+
+    </div><!-- /rules-accordion -->
+
+    <!-- ── Ranking Criteria ── -->
+    <div class="ranking-section">
+      <div class="ranking-title">
+        <span data-lang="zh">📊 排名逻辑 · Ranking Criteria</span>
+        <span data-lang="en">📊 Ranking Criteria · 排名逻辑</span>
+      </div>
+      <ul class="ranking-list">
+        <li>
+          <span class="ranking-num">1</span>
+          <span>
+            <span data-lang="zh"><strong style="color:var(--yellow)">胜场</strong> — 胜负场次优先</span>
+            <span data-lang="en"><strong style="color:var(--yellow)">Wins</strong> — Most match wins take priority</span>
+          </span>
+        </li>
+        <li>
+          <span class="ranking-num">2</span>
+          <span>
+            <span data-lang="zh"><strong style="color:var(--yellow)">净胜局</strong> — 赢得局数与失去局数之差</span>
+            <span data-lang="en"><strong style="color:var(--yellow)">Games Won/Lost Diff</strong> — Net games won minus lost</span>
+          </span>
+        </li>
+        <li>
+          <span class="ranking-num">3</span>
+          <span>
+            <span data-lang="zh"><strong style="color:var(--yellow)">胜负关系</strong> — 同分选手间的直接对阵结果</span>
+            <span data-lang="en"><strong style="color:var(--yellow)">Head-to-Head</strong> — Direct match result between tied players</span>
+          </span>
+        </li>
+        <li>
+          <span class="ranking-num">★</span>
+          <span>
+            <span data-lang="zh"><strong style="color:var(--yellow)">黄球最佳第三名</strong> — 各组第三名依胜负关系 → 净胜局 → 总积分比较，上下午组各取2名晋级16强</span>
+            <span data-lang="en"><strong style="color:var(--yellow)">Yellow Ball 3rd Place</strong> — Among all 3rd-place players: H2H → Net Games → Total Points. Best 2 from AM &amp; PM groups advance to Round of 16</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<hr class="neon-divider" />
+
 <!-- ════════════════════════════════════ SPONSORS ═══ -->
 <section id="sponsors" class="section">
   <div class="container">
@@ -978,6 +1187,7 @@
     <a href="#hero"><span data-lang="zh">首页</span><span data-lang="en">Home</span></a>
     <a href="#schedule"><span data-lang="zh">赛程</span><span data-lang="en">Schedule</span></a>
     <a href="#groups"><span data-lang="zh">分组</span><span data-lang="en">Groups</span></a>
+    <a href="#rules"><span data-lang="zh">规则</span><span data-lang="en">Rules</span></a>
     <a href="#sponsors"><span data-lang="zh">赞助商</span><span data-lang="en">Sponsors</span></a>
     <a href="#map-section"><span data-lang="zh">地点</span><span data-lang="en">Venue</span></a>
   </div>
