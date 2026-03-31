@@ -626,6 +626,134 @@
       .ranking-list li { font-size: .86rem; }
     }
 
+    .hero-location-warning {
+      display: block;
+      margin-top: 8px;
+      color: #ff3333;
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-shadow: 0 0 8px rgba(255,51,51,.5);
+    }
+
+    /* ── Player & Parent Guide ── */
+    #guide { background: var(--bg2); }
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .guide-card {
+      background: rgba(19,28,46,.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px 22px;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .guide-card:hover { transform: translateY(-3px); box-shadow: 0 6px 28px rgba(0,170,255,.12); }
+    .guide-card-icon { font-size: 2rem; margin-bottom: 12px; }
+    .guide-card-title {
+      font-size: 1rem; font-weight: 800; letter-spacing: 1px;
+      color: var(--blue); text-shadow: var(--glow-b);
+      margin-bottom: 10px;
+    }
+    .guide-card-body { font-size: .9rem; line-height: 1.75; color: var(--text); }
+    .guide-card-body p { margin-bottom: 6px; }
+    .guide-card-body p:last-child { margin-bottom: 0; }
+    .guide-card.orange-card { border-color: rgba(255,106,0,.35); }
+    .guide-card.orange-card .guide-card-title { color: var(--orange); text-shadow: var(--glow-o); }
+    .guide-card.green-card  { border-color: rgba(57,255,20,.28); }
+    .guide-card.green-card  .guide-card-title { color: var(--green);  text-shadow: var(--glow-g); }
+    .guide-card.yellow-card { border-color: rgba(255,230,0,.3); }
+    .guide-card.yellow-card .guide-card-title { color: var(--yellow); text-shadow: 0 0 12px rgba(255,230,0,.5); }
+    .guide-card.red-card    { border-color: rgba(255,51,51,.4); }
+    .guide-card.red-card    .guide-card-title { color: #ff5555; text-shadow: 0 0 12px rgba(255,51,51,.45); }
+
+    /* ── Promotion Card ── */
+    #promotion { background: var(--bg3); }
+    .promo-card {
+      max-width: 680px; margin: 0 auto;
+      background: rgba(19,28,46,.8);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1.5px solid rgba(255,230,0,.45);
+      border-radius: 18px;
+      padding: 44px 36px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .promo-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% -10%, rgba(255,230,0,.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .promo-icon { font-size: 3rem; margin-bottom: 16px; }
+    .promo-title {
+      font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+      font-weight: 900; color: var(--yellow);
+      text-shadow: 0 0 20px rgba(255,230,0,.6);
+      letter-spacing: 2px; margin-bottom: 16px;
+    }
+    .promo-body {
+      font-size: .97rem; line-height: 1.8; color: var(--text);
+    }
+    .promo-body strong { color: var(--yellow); }
+    @media (max-width: 480px) { .promo-card { padding: 30px 20px; } }
+
+    /* ── Tournament Committee ── */
+    #committee { background: var(--bg2); }
+    .committee-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .committee-card {
+      background: rgba(19,28,46,.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 18px;
+      text-align: center;
+    }
+    .committee-role {
+      font-size: .72rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .committee-name {
+      font-size: 1rem; font-weight: 800; color: var(--blue);
+      text-shadow: var(--glow-b); letter-spacing: 1px;
+    }
+    .committee-org {
+      text-align: center; font-size: .88rem; color: var(--muted);
+      margin-bottom: 30px;
+    }
+    .committee-org strong { color: var(--text); }
+    @media (max-width: 480px) {
+      .committee-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ── Location Warning in map card ── */
+    .map-warning {
+      display: inline-block;
+      margin: 8px auto 20px;
+      padding: 8px 18px;
+      background: rgba(255,51,51,.1);
+      border: 1.5px solid rgba(255,51,51,.5);
+      border-radius: 8px;
+      color: #ff4444;
+      font-size: .88rem; font-weight: 700;
+      letter-spacing: .5px;
+      text-shadow: 0 0 8px rgba(255,51,51,.35);
+    }
+
     /* ── Divider lines ── */
     .neon-divider {
       height: 2px;
@@ -643,6 +771,7 @@
   <ul class="nav-links">
     <li><a href="#schedule"><span data-lang="zh">赛程</span><span data-lang="en">Schedule</span></a></li>
     <li><a href="#groups"><span data-lang="zh">分组</span><span data-lang="en">Groups</span></a></li>
+    <li><a href="#guide"><span data-lang="zh">参赛须知</span><span data-lang="en">Guide</span></a></li>
     <li><a href="#rules"><span data-lang="zh">规则</span><span data-lang="en">Rules</span></a></li>
     <li><a href="#sponsors"><span data-lang="zh">赞助商</span><span data-lang="en">Sponsors</span></a></li>
     <li><a href="#map-section"><span data-lang="zh">地点</span><span data-lang="en">Venue</span></a></li>
@@ -685,7 +814,13 @@
 
     <div class="hero-location">
       <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-      <a href="https://maps.google.com/?q=The+Sheldon+Tennis+Center+Queensland+Australia" target="_blank" rel="noopener noreferrer">The Sheldon Tennis Center, Queensland</a>
+      <span>
+        <a href="https://maps.google.com/?q=The+Sheldon+Tennis+Center+Queensland+Australia" target="_blank" rel="noopener noreferrer">The Sheldon Tennis Center, Queensland</a>
+        <span class="hero-location-warning">
+          <span data-lang="zh">⚠️ 请勿前往南侧入口！</span>
+          <span data-lang="en">⚠️ DO NOT go to the South side!</span>
+        </span>
+      </span>
     </div>
 
     <div class="hero-cta">
@@ -752,7 +887,7 @@
               <span data-lang="zh">4月3日（周五）</span>
               <span data-lang="en">Fri · Apr 3</span>
             </td>
-            <td class="sched-time-cell">02:30 PM</td>
+            <td class="sched-time-cell">02:00 PM</td>
             <td class="sched-event-cell">
               <span data-lang="zh">✨ 黄球单打-精英组</span>
               <span data-lang="en">✨ Yellow Ball Singles – Elite</span>
@@ -1049,7 +1184,137 @@
 
 <hr class="neon-divider" />
 
-<!-- ════════════════════════════════════ RULES ═══ -->
+<!-- ════════════════════════════════════ PLAYER & PARENT GUIDE ═══ -->
+<section id="guide" class="section">
+  <div class="container">
+    <h2 class="section-title neon-blue">
+      <span data-lang="zh">📖 参赛及观赛须知</span>
+      <span data-lang="en">📖 Player &amp; Parent Guide</span>
+    </h2>
+
+    <div class="guide-grid">
+
+      <!-- Preparation -->
+      <div class="guide-card">
+        <div class="guide-card-icon">🎽🍌🥤</div>
+        <div class="guide-card-title">
+          <span data-lang="zh">赛前准备</span>
+          <span data-lang="en">Preparation</span>
+        </div>
+        <div class="guide-card-body">
+          <span data-lang="zh">
+            <p>穿有口袋的运动服（方便携带备用球）。</p>
+            <p>请备好水、运动饮料、香蕉及零食，防止低血糖。</p>
+          </span>
+          <span data-lang="en">
+            <p>Wear clothes with pockets (to carry extra balls).</p>
+            <p>Bring water, sports drinks, bananas &amp; snacks to prevent low blood sugar.</p>
+          </span>
+        </div>
+      </div>
+
+      <!-- Sun Safety -->
+      <div class="guide-card yellow-card">
+        <div class="guide-card-icon">☀️</div>
+        <div class="guide-card-title">
+          <span data-lang="zh">防晒提示</span>
+          <span data-lang="en">Sun Safety</span>
+        </div>
+        <div class="guide-card-body">
+          <span data-lang="zh">
+            <p>即使温度适宜，也请务必涂抹防晒霜，保护皮肤。</p>
+          </span>
+          <span data-lang="en">
+            <p>Apply sunscreen even if the temperature feels comfortable. Protect your skin!</p>
+          </span>
+        </div>
+      </div>
+
+      <!-- Etiquette -->
+      <div class="guide-card green-card">
+        <div class="guide-card-icon">🤝🤫</div>
+        <div class="guide-card-title">
+          <span data-lang="zh">比赛礼仪</span>
+          <span data-lang="en">Etiquette</span>
+        </div>
+        <div class="guide-card-body">
+          <span data-lang="zh">
+            <p>每场比赛结束后，请在网前与对手握手。🤝</p>
+            <p>观赛家长：打球期间请保持安静，得分结束后再欢呼加油。🤫</p>
+          </span>
+          <span data-lang="en">
+            <p>Shake hands at the net after every match. 🤝</p>
+            <p>Spectators: Keep quiet during points — cheer only after the point is over. 🤫</p>
+          </span>
+        </div>
+      </div>
+
+      <!-- Parental Help -->
+      <div class="guide-card orange-card">
+        <div class="guide-card-icon">🟠🟢👨‍👩‍👧</div>
+        <div class="guide-card-title">
+          <span data-lang="zh">家长协助</span>
+          <span data-lang="en">Parental Help</span>
+        </div>
+        <div class="guide-card-body">
+          <span data-lang="zh">
+            <p><strong>橙球组</strong>和<strong>绿翼组</strong>的家长请站在边线旁协助捡球，保持比赛流畅进行。</p>
+          </span>
+          <span data-lang="en">
+            <p>Parents of <strong>Orange</strong> and <strong>Green</strong> groups, please stand by the sidelines to help pick up balls and keep the game flowing.</p>
+          </span>
+        </div>
+      </div>
+
+      <!-- Health & Safety -->
+      <div class="guide-card red-card">
+        <div class="guide-card-icon">🏥</div>
+        <div class="guide-card-title">
+          <span data-lang="zh">健康与安全</span>
+          <span data-lang="en">Health &amp; Safety</span>
+        </div>
+        <div class="guide-card-body">
+          <span data-lang="zh">
+            <p>若孩子感到不适或受伤，请立即告知组委会（Eric 教练 / 团队）。</p>
+          </span>
+          <span data-lang="en">
+            <p>If a child feels unwell or is injured, inform the committee (Coach Eric / Team) immediately.</p>
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="neon-divider" />
+
+<!-- ════════════════════════════════════ PROMOTION ═══ -->
+<section id="promotion" class="section">
+  <div class="container">
+    <h2 class="section-title" style="color:var(--yellow);text-shadow:0 0 16px rgba(255,230,0,.5);">
+      <span data-lang="zh">📈 升级制度</span>
+      <span data-lang="en">📈 Promotion System</span>
+    </h2>
+    <div class="promo-card">
+      <div class="promo-icon">🏆📈🎾</div>
+      <div class="promo-title">
+        <span data-lang="zh">优秀选手将在下届赛事中晋级更高级别！</span>
+        <span data-lang="en">Outstanding Players Will Be Promoted!</span>
+      </div>
+      <div class="promo-body">
+        <span data-lang="zh">
+          <p>表现出色的选手将在下一届锦标赛中晋升至更高级别。<strong>精英组</strong>的顶尖选手甚至有机会受邀参加<strong>成人组赛事</strong>！📈</p>
+        </span>
+        <span data-lang="en">
+          <p>Outstanding players will be promoted to higher levels at the next tournament! <strong>Top performers</strong> in the Elite Group will even be invited to participate in <strong>Adult Tournaments</strong>! 📈</p>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="neon-divider" />
 <section id="rules" class="section">
   <div class="container">
     <h2 class="section-title neon-blue">
@@ -1233,12 +1498,63 @@
         <span data-lang="zh">昆士兰州 · Queensland, Australia</span>
         <span data-lang="en">Queensland, Australia</span>
       </div>
+      <div class="map-warning">
+        <span data-lang="zh">📍 比赛地点：The Sheldon Tennis Center（请勿前往南侧！）</span>
+        <span data-lang="en">📍 Location: The Sheldon Tennis Center (DO NOT go to the South side!)</span>
+      </div>
       <a href="https://maps.google.com/?q=The+Sheldon+Tennis+Center+Queensland+Australia"
          target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin:0 auto;display:inline-flex;">
         <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
         <span data-lang="zh">在 Google 地图中打开</span>
         <span data-lang="en">Open in Google Maps</span>
       </a>
+    </div>
+  </div>
+</section>
+
+<hr class="neon-divider" />
+
+<!-- ════════════════════════════════════ COMMITTEE ═══ -->
+<section id="committee" class="section">
+  <div class="container">
+    <h2 class="section-title neon-blue">
+      <span data-lang="zh">🏅 赛事组委会</span>
+      <span data-lang="en">🏅 Tournament Committee</span>
+    </h2>
+
+    <div class="committee-org">
+      <strong>
+        <span data-lang="zh">主办单位：布里斯班华人网球会（Brisbane Chinese Tennis Association）</span>
+        <span data-lang="en">Organizer: Brisbane Chinese Tennis Association (布里斯班华人网球会)</span>
+      </strong>
+    </div>
+
+    <div class="committee-grid">
+
+      <div class="committee-card">
+        <div class="committee-role">
+          <span data-lang="zh">监督</span>
+          <span data-lang="en">Supervision</span>
+        </div>
+        <div class="committee-name">Coach Eric</div>
+      </div>
+
+      <div class="committee-card">
+        <div class="committee-role">
+          <span data-lang="zh">现场解说</span>
+          <span data-lang="en">Live Commentary</span>
+        </div>
+        <div class="committee-name">Coach Zhou</div>
+      </div>
+
+      <div class="committee-card">
+        <div class="committee-role">
+          <span data-lang="zh">裁判员</span>
+          <span data-lang="en">Referees</span>
+        </div>
+        <div class="committee-name" style="font-size:.9rem;">Coach Tian · Hayden · Jay · Gemma · Kevin S…</div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1256,8 +1572,11 @@
     <a href="#hero"><span data-lang="zh">首页</span><span data-lang="en">Home</span></a>
     <a href="#schedule"><span data-lang="zh">赛程</span><span data-lang="en">Schedule</span></a>
     <a href="#groups"><span data-lang="zh">分组</span><span data-lang="en">Groups</span></a>
+    <a href="#guide"><span data-lang="zh">参赛须知</span><span data-lang="en">Guide</span></a>
     <a href="#rules"><span data-lang="zh">规则</span><span data-lang="en">Rules</span></a>
+    <a href="#promotion"><span data-lang="zh">升级制度</span><span data-lang="en">Promotion</span></a>
     <a href="#sponsors"><span data-lang="zh">赞助商</span><span data-lang="en">Sponsors</span></a>
+    <a href="#committee"><span data-lang="zh">组委会</span><span data-lang="en">Committee</span></a>
     <a href="#map-section"><span data-lang="zh">地点</span><span data-lang="en">Venue</span></a>
   </div>
   <div class="footer-copy">
