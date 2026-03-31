@@ -554,9 +554,9 @@
           <!-- Row 1: Yellow Ball Singles -->
           <tr>
             <td class="sched-accent sched-accent-blue"></td>
-            <td class="sched-date-cell neon-blue">
-              <span data-lang="zh">4月3日（周四）</span>
-              <span data-lang="en">Thu · Apr 3</span>
+            <td class="sched-date-cell neon-blue" data-date="2026-04-03">
+              <span data-lang="zh">4月3日（周五）</span>
+              <span data-lang="en">Fri · Apr 3</span>
             </td>
             <td class="sched-time-cell">08:30 AM</td>
             <td class="sched-event-cell">
@@ -572,9 +572,9 @@
           <!-- Row 2: Green Wings -->
           <tr>
             <td class="sched-accent sched-accent-green"></td>
-            <td class="sched-date-cell neon-green">
-              <span data-lang="zh">4月4日（周五）</span>
-              <span data-lang="en">Fri · Apr 4</span>
+            <td class="sched-date-cell neon-green" data-date="2026-04-04">
+              <span data-lang="zh">4月4日（周六）</span>
+              <span data-lang="en">Sat · Apr 4</span>
             </td>
             <td class="sched-time-cell">08:30 AM</td>
             <td class="sched-event-cell">
@@ -590,9 +590,9 @@
           <!-- Row 3: Yellow Ball Doubles -->
           <tr>
             <td class="sched-accent sched-accent-blue"></td>
-            <td class="sched-date-cell neon-blue">
-              <span data-lang="zh">4月5日（周六）</span>
-              <span data-lang="en">Sat · Apr 5</span>
+            <td class="sched-date-cell neon-blue" data-date="2026-04-05">
+              <span data-lang="zh">4月5日（周日）</span>
+              <span data-lang="en">Sun · Apr 5</span>
             </td>
             <td class="sched-time-cell">08:30 AM</td>
             <td class="sched-event-cell">
@@ -608,9 +608,9 @@
           <!-- Row 4: Orange Stars -->
           <tr>
             <td class="sched-accent sched-accent-orange"></td>
-            <td class="sched-date-cell neon-orange">
-              <span data-lang="zh">4月5日（周六）</span>
-              <span data-lang="en">Sat · Apr 5</span>
+            <td class="sched-date-cell neon-orange" data-date="2026-04-05">
+              <span data-lang="zh">4月5日（周日）</span>
+              <span data-lang="en">Sun · Apr 5</span>
             </td>
             <td class="sched-time-cell">03:00 PM</td>
             <td class="sched-event-cell">
@@ -934,6 +934,24 @@
     document.getElementById('panel-' + name).classList.add('active');
     btn.classList.add('active');
   }
+
+  /* ── Dynamic Schedule Weekdays ── */
+  function updateScheduleDates() {
+    document.querySelectorAll('td[data-date]').forEach(function(td) {
+      var parts = td.getAttribute('data-date').split('-');
+      var date = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+      var month = date.getMonth() + 1;
+      var day = date.getDate();
+      var weekdayZh = date.toLocaleDateString('zh-CN', { weekday: 'short' });
+      var weekdayEn = date.toLocaleDateString('en-US', { weekday: 'short' });
+      var monthAbbrEn = date.toLocaleDateString('en-US', { month: 'short' });
+      var zhSpan = td.querySelector('[data-lang="zh"]');
+      var enSpan = td.querySelector('[data-lang="en"]');
+      if (zhSpan) zhSpan.textContent = month + '月' + day + '日（' + weekdayZh + '）';
+      if (enSpan) enSpan.textContent = weekdayEn + ' · ' + monthAbbrEn + ' ' + day;
+    });
+  }
+  document.addEventListener('DOMContentLoaded', updateScheduleDates);
 </script>
 </body>
 </html>
