@@ -301,9 +301,18 @@
       text-underline-offset: 3px;
     }
     .sched-location-cell a:hover { text-shadow: var(--glow-b); }
+    .sched-warmup {
+      display: block;
+      margin-top: 5px;
+      font-size: .75rem;
+      font-weight: 600;
+      color: #ff9a3c;
+      letter-spacing: .5px;
+    }
     @media (max-width: 480px) {
       .schedule-table td { padding: 14px 12px; font-size: .88rem; }
       .schedule-table thead th { padding: 10px 12px; }
+      .sched-warmup { font-size: .7rem; }
     }
 
     /* ── Groups ── */
@@ -714,74 +723,112 @@
           </tr>
         </thead>
         <tbody>
-          <!-- Row 1: Yellow Ball Singles -->
+          <!-- Row 1: Yellow Ball Singles Groups A,B,C — April 3 AM -->
           <tr>
             <td class="sched-accent sched-accent-blue"></td>
             <td class="sched-date-cell neon-blue" data-date="2026-04-03">
               <span data-lang="zh">4月3日（周五）</span>
               <span data-lang="en">Fri · Apr 3</span>
             </td>
-            <td class="sched-time-cell">08:30 AM</td>
+            <td class="sched-time-cell">08:00 AM</td>
             <td class="sched-event-cell">
-              <span data-lang="zh">🎾 黄球单打</span>
-              <span data-lang="en">🎾 Yellow Ball Singles</span>
-              <div><span class="badge badge-yellow" style="margin-top:6px;font-size:.7rem;">精英组 Elite Summit</span></div>
+              <span data-lang="zh">✨ 黄球单打-精英组</span>
+              <span data-lang="en">✨ Yellow Ball Singles – Elite</span>
+              <div><span class="badge badge-yellow" style="margin-top:6px;font-size:.7rem;">A · B · C 组</span></div>
+              <span class="sched-warmup">
+                <span data-lang="zh">报到并热身🔥</span>
+                <span data-lang="en">Check-in &amp; Warm-up 🔥</span>
+              </span>
             </td>
             <td class="sched-location-cell">
               <a href="https://maps.google.com/?q=The+Sheldon+Tennis+Center+Queensland+Australia" target="_blank" rel="noopener noreferrer">The Sheldon Tennis Center</a>
             </td>
           </tr>
 
-          <!-- Row 2: Green Wings -->
+          <!-- Row 2: Yellow Ball Singles Groups D,E,F — April 3 PM -->
+          <tr>
+            <td class="sched-accent sched-accent-blue"></td>
+            <td class="sched-date-cell neon-blue" data-date="2026-04-03">
+              <span data-lang="zh">4月3日（周五）</span>
+              <span data-lang="en">Fri · Apr 3</span>
+            </td>
+            <td class="sched-time-cell">02:30 PM</td>
+            <td class="sched-event-cell">
+              <span data-lang="zh">✨ 黄球单打-精英组</span>
+              <span data-lang="en">✨ Yellow Ball Singles – Elite</span>
+              <div><span class="badge badge-yellow" style="margin-top:6px;font-size:.7rem;">D · E · F 组</span></div>
+              <span class="sched-warmup">
+                <span data-lang="zh">报到并热身🔥</span>
+                <span data-lang="en">Check-in &amp; Warm-up 🔥</span>
+              </span>
+            </td>
+            <td class="sched-location-cell">
+              <a href="https://maps.google.com/?q=The+Sheldon+Tennis+Center+Queensland+Australia" target="_blank" rel="noopener noreferrer">The Sheldon Tennis Center</a>
+            </td>
+          </tr>
+
+          <!-- Row 3: Green Wings All Groups — April 4 -->
           <tr>
             <td class="sched-accent sched-accent-green"></td>
             <td class="sched-date-cell neon-green" data-date="2026-04-04">
               <span data-lang="zh">4月4日（周六）</span>
               <span data-lang="en">Sat · Apr 4</span>
             </td>
-            <td class="sched-time-cell">08:30 AM</td>
+            <td class="sched-time-cell">08:00 AM</td>
             <td class="sched-event-cell">
-              <span data-lang="zh">🟢 绿翼组</span>
-              <span data-lang="en">🟢 Green Wings Group</span>
-              <div><span class="badge badge-green" style="margin-top:6px;font-size:.7rem;">绿翼组 Green Wings</span></div>
+              <span data-lang="zh">🍃 绿翼组</span>
+              <span data-lang="en">🍃 Green Wings Group</span>
+              <div><span class="badge badge-green" style="margin-top:6px;font-size:.7rem;"><span data-lang="zh">全组</span><span data-lang="en">All Groups</span></span></div>
+              <span class="sched-warmup">
+                <span data-lang="zh">报到并热身🔥</span>
+                <span data-lang="en">Check-in &amp; Warm-up 🔥</span>
+              </span>
             </td>
             <td class="sched-location-cell">
               <a href="https://maps.google.com/?q=The+Sheldon+Tennis+Center+Queensland+Australia" target="_blank" rel="noopener noreferrer">The Sheldon Tennis Center</a>
             </td>
           </tr>
 
-          <!-- Row 3: Yellow Ball Doubles -->
+          <!-- Row 4: Yellow Ball Doubles All Groups — April 5 AM -->
           <tr>
             <td class="sched-accent sched-accent-blue"></td>
             <td class="sched-date-cell neon-blue" data-date="2026-04-05">
               <span data-lang="zh">4月5日（周日）</span>
               <span data-lang="en">Sun · Apr 5</span>
             </td>
-            <td class="sched-time-cell">08:30 AM</td>
+            <td class="sched-time-cell">08:00 AM</td>
             <td class="sched-event-cell">
-              <span data-lang="zh">🎾 黄球双打</span>
-              <span data-lang="en">🎾 Yellow Ball Doubles</span>
-              <div><span class="badge badge-yellow" style="margin-top:6px;font-size:.7rem;">精英组 Elite Summit</span></div>
+              <span data-lang="zh">✨ 黄球双打-精英组</span>
+              <span data-lang="en">✨ Yellow Ball Doubles – Elite</span>
+              <div><span class="badge badge-yellow" style="margin-top:6px;font-size:.7rem;"><span data-lang="zh">全组</span><span data-lang="en">All Groups</span></span></div>
+              <span class="sched-warmup">
+                <span data-lang="zh">报到并热身🔥</span>
+                <span data-lang="en">Check-in &amp; Warm-up 🔥</span>
+              </span>
             </td>
             <td class="sched-location-cell">
               <a href="https://maps.google.com/?q=The+Sheldon+Tennis+Center+Queensland+Australia" target="_blank" rel="noopener noreferrer">The Sheldon Tennis Center</a>
             </td>
           </tr>
 
-          <!-- Row 4: Orange Stars -->
+          <!-- Row 5: Orange Stars All Groups — April 5 PM -->
           <tr>
             <td class="sched-accent sched-accent-orange"></td>
             <td class="sched-date-cell neon-orange" data-date="2026-04-05">
               <span data-lang="zh">4月5日（周日）</span>
               <span data-lang="en">Sun · Apr 5</span>
             </td>
-            <td class="sched-time-cell">03:00 PM</td>
+            <td class="sched-time-cell">02:30 PM</td>
             <td class="sched-event-cell">
               <a href="#groups" onclick="showOrangePanel()" class="sched-event-link">
-                <span data-lang="zh">🟠 橙星组</span>
-                <span data-lang="en">🟠 Orange Stars Group</span>
+                <span data-lang="zh">🍊 橙星组</span>
+                <span data-lang="en">🍊 Orange Stars Group</span>
               </a>
-              <div><span class="badge badge-orange" style="margin-top:6px;font-size:.7rem;">橙星组 Orange Stars</span></div>
+              <div><span class="badge badge-orange" style="margin-top:6px;font-size:.7rem;"><span data-lang="zh">全组</span><span data-lang="en">All Groups</span></span></div>
+              <span class="sched-warmup">
+                <span data-lang="zh">报到并热身🔥</span>
+                <span data-lang="en">Check-in &amp; Warm-up 🔥</span>
+              </span>
             </td>
             <td class="sched-location-cell">
               <a href="https://maps.google.com/?q=The+Sheldon+Tennis+Center+Queensland+Australia" target="_blank" rel="noopener noreferrer">The Sheldon Tennis Center</a>
