@@ -750,3 +750,206 @@
       border: none;
       margin: 0;
     }
+
+    /* ── Prize Pool ── */
+    #prizes { background: var(--bg3); }
+
+    .prize-live-banner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 14px 28px;
+      margin: 0 auto 40px;
+      max-width: 700px;
+      background: linear-gradient(135deg, rgba(255,0,60,.15), rgba(255,60,0,.1));
+      border: 2px solid rgba(255,50,50,.6);
+      border-radius: 12px;
+      font-size: clamp(1rem, 2.8vw, 1.3rem);
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: #ff4455;
+      text-shadow: 0 0 12px rgba(255,50,50,.6);
+      text-align: center;
+    }
+    .prize-live-dot {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: #ff3344;
+      box-shadow: 0 0 10px rgba(255,50,50,.9);
+      flex-shrink: 0;
+      animation: prize-pulse 1.2s ease-in-out infinite;
+    }
+    @keyframes prize-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .5; transform: scale(1.3); }
+    }
+
+    /* General sponsors row */
+    .prize-general {
+      background: rgba(19,28,46,.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 24px 24px;
+      margin-bottom: 40px;
+    }
+    .prize-general-title {
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: var(--yellow);
+      text-shadow: 0 0 12px rgba(255,230,0,.5);
+      margin-bottom: 22px;
+    }
+    .prize-general-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: center;
+    }
+    .prize-icon-chip {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0,170,255,.07);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 22px;
+      min-width: 130px;
+      text-align: center;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .prize-icon-chip:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,170,255,.15); }
+    .prize-icon-emoji { font-size: 2rem; }
+    .prize-icon-label {
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .prize-icon-sub {
+      font-size: .78rem;
+      color: var(--blue);
+      font-weight: 600;
+    }
+
+    /* Prize cards grid */
+    .prize-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 1000px) {
+      .prize-cards-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 540px) {
+      .prize-cards-grid { grid-template-columns: 1fr; }
+    }
+
+    .prize-card {
+      background: rgba(19,28,46,.8);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 16px;
+      padding: 26px 20px 24px;
+      border: 2px solid;
+      position: relative;
+      overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .prize-card:hover { transform: translateY(-4px); }
+    .prize-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      pointer-events: none;
+      border-radius: 14px;
+    }
+
+    /* Gold */
+    .prize-gold {
+      border-color: rgba(255,215,0,.5);
+      box-shadow: 0 4px 30px rgba(255,215,0,.12);
+    }
+    .prize-gold::before {
+      background: radial-gradient(ellipse at 50% -20%, rgba(255,215,0,.15) 0%, transparent 65%);
+    }
+    .prize-gold:hover { box-shadow: 0 8px 40px rgba(255,215,0,.25); }
+    .prize-gold .prize-rank-title { color: #ffd700; text-shadow: 0 0 14px rgba(255,215,0,.6); }
+
+    /* Silver */
+    .prize-silver {
+      border-color: rgba(192,192,192,.45);
+      box-shadow: 0 4px 30px rgba(192,192,192,.1);
+    }
+    .prize-silver::before {
+      background: radial-gradient(ellipse at 50% -20%, rgba(210,210,210,.12) 0%, transparent 65%);
+    }
+    .prize-silver:hover { box-shadow: 0 8px 40px rgba(192,192,192,.22); }
+    .prize-silver .prize-rank-title { color: #c0c0c0; text-shadow: 0 0 14px rgba(192,192,192,.5); }
+
+    /* Bronze */
+    .prize-bronze {
+      border-color: rgba(205,127,50,.5);
+      box-shadow: 0 4px 30px rgba(205,127,50,.12);
+    }
+    .prize-bronze::before {
+      background: radial-gradient(ellipse at 50% -20%, rgba(205,127,50,.15) 0%, transparent 65%);
+    }
+    .prize-bronze:hover { box-shadow: 0 8px 40px rgba(205,127,50,.25); }
+    .prize-bronze .prize-rank-title { color: #cd7f32; text-shadow: 0 0 14px rgba(205,127,50,.55); }
+
+    /* Fourth */
+    .prize-fourth {
+      border-color: rgba(128,144,160,.4);
+      box-shadow: 0 4px 30px rgba(128,144,160,.08);
+    }
+    .prize-fourth::before {
+      background: radial-gradient(ellipse at 50% -20%, rgba(128,144,160,.1) 0%, transparent 65%);
+    }
+    .prize-fourth:hover { box-shadow: 0 8px 40px rgba(128,144,160,.18); }
+    .prize-fourth .prize-rank-title { color: #9aaabb; text-shadow: 0 0 14px rgba(130,150,170,.4); }
+
+    .prize-rank-badge {
+      font-size: 2.4rem;
+      text-align: center;
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+    .prize-rank-title {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-align: center;
+      margin-bottom: 18px;
+    }
+    .prize-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .prize-list li {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 6px;
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .prize-bullet {
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+    .prize-sponsor-note {
+      width: 100%;
+      font-size: .76rem;
+      font-weight: 400;
+      color: var(--muted);
+      margin-top: 1px;
+      padding-left: 22px;
+    }
