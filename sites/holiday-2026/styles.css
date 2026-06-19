@@ -1,0 +1,536 @@
+:root {
+  --bg: #f6fbf4;
+  --surface: #ffffff;
+  --surface-strong: #f0f7e7;
+  --surface-tint: #eef7ff;
+  --ink: #173328;
+  --muted: #5f776b;
+  --line: rgba(23, 51, 40, 0.12);
+  --green: #64be50;
+  --green-deep: #2f8c3d;
+  --yellow: #ffd24d;
+  --orange: #ff9248;
+  --clay: #ff6f52;
+  --shadow: 0 22px 50px rgba(34, 72, 51, 0.12);
+  --radius-xl: 28px;
+  --radius-lg: 20px;
+  --radius-md: 14px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Barlow", "Noto Sans SC", "PingFang SC", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(255, 210, 77, 0.5), transparent 28%),
+    radial-gradient(circle at top right, rgba(100, 190, 80, 0.2), transparent 22%),
+    linear-gradient(180deg, #fbfff7 0%, var(--bg) 100%);
+  line-height: 1.55;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+[data-lang="en"],
+[data-lang="zh"] {
+  display: none;
+}
+
+body.lang-zh [data-lang="zh"] {
+  display: revert;
+}
+
+body.lang-en [data-lang="en"] {
+  display: revert;
+}
+
+span[data-lang] {
+  display: none;
+}
+
+body.lang-zh span[data-lang="zh"] {
+  display: inline;
+}
+
+body.lang-en span[data-lang="en"] {
+  display: inline;
+}
+
+.container {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(251, 255, 247, 0.86);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(23, 51, 40, 0.08);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-height: 74px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.brand-mark {
+  font-size: 1rem;
+}
+
+.brand-year {
+  color: var(--orange);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-left: auto;
+}
+
+.nav-menu a {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.nav-menu a:hover,
+.nav-menu a:focus-visible {
+  color: var(--ink);
+}
+
+.lang-toggle,
+.nav-toggle,
+.button {
+  border: 0;
+  font: inherit;
+}
+
+.lang-toggle {
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.nav-toggle {
+  display: none;
+  margin-left: auto;
+  padding: 8px;
+  border-radius: 12px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  margin: 4px 0;
+  background: var(--ink);
+  border-radius: 999px;
+}
+
+.hero {
+  position: relative;
+  padding: 44px 0 28px;
+}
+
+.hero-media {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.hero-media img {
+  width: 100%;
+  height: clamp(260px, 42vw, 480px);
+  object-fit: cover;
+  filter: saturate(1.05) contrast(1.02);
+}
+
+.hero-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.75fr);
+  gap: 24px;
+  margin-top: -72px;
+  position: relative;
+}
+
+.hero-copy,
+.hero-card,
+.highlight-card,
+.schedule-card,
+.division-card,
+.coming-soon-card,
+.guide-card,
+.venue-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.hero-copy {
+  padding: 34px;
+  border-radius: var(--radius-xl);
+}
+
+.hero-card {
+  padding: 28px;
+  border-radius: var(--radius-lg);
+  align-self: end;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--green-deep);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  line-height: 0.98;
+  margin-bottom: 18px;
+}
+
+h2 {
+  font-size: clamp(1.9rem, 3.2vw, 3rem);
+  line-height: 1.02;
+  margin-bottom: 12px;
+}
+
+h3 {
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+}
+
+.hero-summary,
+.section-heading p,
+.division-card p,
+.coming-soon-card p,
+.guide-card p,
+.venue-card p {
+  color: var(--muted);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.button-primary {
+  background: linear-gradient(135deg, var(--green), var(--yellow));
+}
+
+.button-secondary {
+  background: var(--surface-tint);
+  border: 1px solid rgba(39, 111, 152, 0.16);
+}
+
+.hero-card-label {
+  margin-bottom: 16px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green-deep);
+}
+
+.snapshot-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.snapshot-list li {
+  display: grid;
+  gap: 4px;
+}
+
+.snapshot-list strong {
+  font-size: 0.92rem;
+}
+
+.section {
+  padding: 34px 0 72px;
+}
+
+.section-contrast {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(95, 191, 74, 0.05) 100%);
+}
+
+.highlight-strip {
+  padding-top: 12px;
+}
+
+.highlight-grid,
+.schedule-grid,
+.division-grid,
+.guide-list {
+  display: grid;
+  gap: 18px;
+}
+
+.highlight-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.highlight-card {
+  padding: 20px 24px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(255, 210, 77, 0.3), rgba(255, 255, 255, 0.98));
+}
+
+.highlight-number {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.highlight-label {
+  margin: 0;
+  color: var(--muted);
+}
+
+.section-heading {
+  max-width: 720px;
+  margin-bottom: 26px;
+}
+
+.schedule-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.schedule-card {
+  padding: 24px;
+  border-radius: var(--radius-lg);
+}
+
+.schedule-tag {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.schedule-yellow .schedule-tag {
+  background: rgba(255, 210, 77, 0.26);
+}
+
+.schedule-orange .schedule-tag {
+  background: rgba(255, 146, 72, 0.2);
+}
+
+.schedule-green .schedule-tag {
+  background: rgba(100, 190, 80, 0.18);
+}
+
+.schedule-clay .schedule-tag {
+  background: rgba(255, 111, 82, 0.16);
+}
+
+.schedule-date {
+  font-size: 1.12rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.schedule-time {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.division-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.division-card,
+.guide-card {
+  padding: 24px;
+  border-radius: var(--radius-lg);
+}
+
+.coming-soon-card {
+  padding: 28px;
+  border-radius: var(--radius-xl);
+  background:
+    linear-gradient(135deg, rgba(255, 210, 77, 0.16), rgba(100, 190, 80, 0.08)),
+    var(--surface);
+}
+
+.status-pill {
+  display: inline-flex;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(23, 51, 40, 0.08);
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.coming-soon-title {
+  color: var(--ink);
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.guide-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.guide-list {
+  grid-template-columns: 1fr;
+}
+
+.venue-card {
+  padding: 30px;
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.site-footer {
+  padding: 24px 0 40px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 980px) {
+  .hero-panel,
+  .guide-layout,
+  .schedule-grid,
+  .division-grid,
+  .highlight-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .guide-heading {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 14px 0;
+  }
+
+  .nav-toggle {
+    display: inline-block;
+  }
+
+  .nav-menu {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 12px 0 4px;
+  }
+
+  .nav-menu.is-open {
+    display: flex;
+  }
+
+  .lang-toggle {
+    order: 2;
+  }
+
+  .hero-panel,
+  .highlight-grid,
+  .schedule-grid,
+  .division-grid,
+  .guide-layout,
+  .footer-inner,
+  .venue-card {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .hero-panel {
+    margin-top: -42px;
+  }
+
+  .hero-copy,
+  .hero-card,
+  .schedule-card,
+  .division-card,
+  .guide-card,
+  .coming-soon-card,
+  .venue-card {
+    padding: 22px;
+  }
+
+  .footer-inner {
+    gap: 4px;
+  }
+}
